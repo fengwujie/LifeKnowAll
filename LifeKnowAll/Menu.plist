@@ -49,7 +49,7 @@
 				<key>gridTitle</key>
 				<string>菜谱查询</string>
 				<key>controllerView</key>
-				<string>WJMenuQueryController</string>
+				<string>WJFoodMenuQueryController</string>
 				<key>visible</key>
 				<true/>
 				<key>imageName</key>
