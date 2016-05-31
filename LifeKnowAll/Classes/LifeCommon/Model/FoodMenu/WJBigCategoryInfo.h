@@ -14,7 +14,7 @@
 /**
  *  大分类信息
  */
-@property (nonatomic , strong) WJCategoryInfo *CategoryInfo;
+@property (nonatomic , strong) WJCategoryInfo *categoryInfo;
 
 /**
  *  大分类下的具体分类信息，数组中存的是数据为模型WJCategoryInfo
