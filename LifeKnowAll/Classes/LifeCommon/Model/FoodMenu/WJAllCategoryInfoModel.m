@@ -6,8 +6,8 @@
 //  Copyright © 2016年 allen. All rights reserved.
 //
 
-#import "WJCategoryInfoFoodModel.h"
+#import "WJAllCategoryInfoModel.h"
 
-@implementation WJCategoryInfoFoodModel
+@implementation WJAllCategoryInfoModel
 
 @end

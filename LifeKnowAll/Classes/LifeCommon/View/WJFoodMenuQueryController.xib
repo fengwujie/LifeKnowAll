@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WJFoodMenuQueryController">
             <connections>
+                <outlet property="tableTree" destination="DU8-jZ-klv" id="nMc-33-R0S"/>
+                <outlet property="txtFoodMenuName" destination="jcB-8o-kdj" id="nUy-n0-iCE"/>
                 <outlet property="view" destination="To7-jr-z6t" id="ABG-Ul-i5r"/>
             </connections>
         </placeholder>
@@ -14,7 +16,56 @@
         <view contentMode="scaleToFill" id="To7-jr-z6t">
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DU8-jZ-klv" customClass="BDDynamicTree">
+                    <rect key="frame" x="0.0" y="110" width="320" height="365"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dtr-hg-4JL" userLabel="查询View">
+                    <rect key="frame" x="0.0" y="64" width="320" height="46"/>
+                    <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入菜谱名称搜索" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="jcB-8o-kdj">
+                            <rect key="frame" x="8" y="8" width="232" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bVz-wy-KcI">
+                            <rect key="frame" x="250" y="8" width="60" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="60" id="ow4-Bg-bSE"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <state key="normal" title="搜索">
+                                <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="btnSearchClick:" destination="-1" eventType="touchUpInside" id="yhP-UR-z2x"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="bVz-wy-KcI" secondAttribute="bottom" constant="8" id="4uh-fM-Gc9"/>
+                        <constraint firstItem="jcB-8o-kdj" firstAttribute="top" secondItem="dtr-hg-4JL" secondAttribute="top" constant="8" id="Kkl-19-B0X"/>
+                        <constraint firstAttribute="height" constant="46" id="Usu-kc-4fs"/>
+                        <constraint firstItem="jcB-8o-kdj" firstAttribute="leading" secondItem="dtr-hg-4JL" secondAttribute="leading" constant="8" id="YME-y8-V92"/>
+                        <constraint firstItem="bVz-wy-KcI" firstAttribute="leading" secondItem="jcB-8o-kdj" secondAttribute="trailing" constant="10" id="a9W-zc-eH7"/>
+                        <constraint firstAttribute="trailing" secondItem="bVz-wy-KcI" secondAttribute="trailing" constant="10" id="aNx-BA-eIB"/>
+                        <constraint firstItem="bVz-wy-KcI" firstAttribute="top" secondItem="dtr-hg-4JL" secondAttribute="top" constant="8" id="kve-Xp-WZK"/>
+                        <constraint firstAttribute="bottom" secondItem="jcB-8o-kdj" secondAttribute="bottom" constant="8" id="o8J-DY-lu4"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="46" id="qGW-cO-LFD"/>
+                    </constraints>
+                </view>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="dtr-hg-4JL" firstAttribute="leading" secondItem="To7-jr-z6t" secondAttribute="leading" id="C2r-eS-vnV"/>
+                <constraint firstItem="dtr-hg-4JL" firstAttribute="top" secondItem="To7-jr-z6t" secondAttribute="top" constant="64" id="DAG-VE-FWq"/>
+                <constraint firstAttribute="trailing" secondItem="dtr-hg-4JL" secondAttribute="trailing" id="LjC-xC-E4E"/>
+                <constraint firstAttribute="trailing" secondItem="DU8-jZ-klv" secondAttribute="trailing" id="QWu-21-fbu"/>
+                <constraint firstItem="DU8-jZ-klv" firstAttribute="leading" secondItem="To7-jr-z6t" secondAttribute="leading" id="dWe-tK-Cai"/>
+                <constraint firstItem="DU8-jZ-klv" firstAttribute="top" secondItem="dtr-hg-4JL" secondAttribute="bottom" id="irU-nZ-X1G"/>
+                <constraint firstAttribute="bottom" secondItem="DU8-jZ-klv" secondAttribute="bottom" constant="5" id="xd4-CD-6EL"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="615" y="222"/>
         </view>

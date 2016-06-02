@@ -9,7 +9,7 @@
 #import "WJBaseReturnModel.h"
 #import "WJAllCategoryInfo.h"
 
-@interface WJCategoryInfoFoodModel : WJBaseReturnModel
+@interface WJAllCategoryInfoModel : WJBaseReturnModel
 
 /**
  *  返回结果集

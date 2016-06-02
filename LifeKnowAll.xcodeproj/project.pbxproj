@@ -36,6 +36,17 @@
 		9F176F621CF3501700EDBF56 /* WJIPAddressController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F176F611CF3501700EDBF56 /* WJIPAddressController.xib */; };
 		9F176F651CF351F900EDBF56 /* WJIPAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F176F641CF351F900EDBF56 /* WJIPAddressModel.m */; };
 		9F176F681CF3522B00EDBF56 /* WJIPAddressReturnModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F176F671CF3522B00EDBF56 /* WJIPAddressReturnModel.m */; };
+		9F9840771CFFE3920074A930 /* BDDynamicTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F98406A1CFFE3920074A930 /* BDDynamicTree.m */; };
+		9F9840781CFFE3920074A930 /* BDDynamicTreeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F98406C1CFFE3920074A930 /* BDDynamicTreeCell.m */; };
+		9F9840791CFFE3920074A930 /* BDDynamicTreeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F98406D1CFFE3920074A930 /* BDDynamicTreeCell.xib */; };
+		9F98407A1CFFE3920074A930 /* BDDynamicTreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F98406F1CFFE3920074A930 /* BDDynamicTreeNode.m */; };
+		9F98407B1CFFE3920074A930 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9F9840711CFFE3920074A930 /* 2.jpg */; };
+		9F98407C1CFFE3920074A930 /* icon_minus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F9840721CFFE3920074A930 /* icon_minus@2x.png */; };
+		9F98407D1CFFE3920074A930 /* icon_plus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F9840731CFFE3920074A930 /* icon_plus@2x.png */; };
+		9F98407E1CFFE3920074A930 /* tree_list@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F9840741CFFE3920074A930 /* tree_list@2x.png */; };
+		9F98407F1CFFE3920074A930 /* tree_minus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F9840751CFFE3920074A930 /* tree_minus@2x.png */; };
+		9F9840801CFFE3920074A930 /* tree_plus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F9840761CFFE3920074A930 /* tree_plus@2x.png */; };
+		9F9840831D0034ED0074A930 /* WJFoodMenuQueryListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F9840821D0034ED0074A930 /* WJFoodMenuQueryListController.m */; };
 		9FBA95D91CF20A060037597F /* WJBaseReturnModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FBA95D81CF20A060037597F /* WJBaseReturnModel.m */; };
 		9FBA95DC1CF20D8C0037597F /* WJIdentityCardQueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FBA95DB1CF20D8C0037597F /* WJIdentityCardQueryController.m */; };
 		9FBA95DE1CF20DDC0037597F /* WJIdentityCardQueryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FBA95DD1CF20DDC0037597F /* WJIdentityCardQueryController.xib */; };
@@ -75,18 +86,11 @@
 		9FD91AB41CFCA13500DE4940 /* WJSingleFoodModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD91AB31CFCA13500DE4940 /* WJSingleFoodModel.m */; };
 		9FD91AB71CFCA28700DE4940 /* WJCategoryInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD91AB61CFCA28700DE4940 /* WJCategoryInfo.m */; };
 		9FD91ABA1CFCA45800DE4940 /* WJBigCategoryInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD91AB91CFCA45800DE4940 /* WJBigCategoryInfo.m */; };
-		9FD91ABD1CFCA5F000DE4940 /* WJCategoryInfoFoodModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD91ABC1CFCA5F000DE4940 /* WJCategoryInfoFoodModel.m */; };
+		9FD91ABD1CFCA5F000DE4940 /* WJAllCategoryInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD91ABC1CFCA5F000DE4940 /* WJAllCategoryInfoModel.m */; };
 		9FD91AC01CFCA65D00DE4940 /* WJAllCategoryInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD91ABF1CFCA65D00DE4940 /* WJAllCategoryInfo.m */; };
 		9FD91AC31CFCA8CF00DE4940 /* WJFoodMultiple.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD91AC21CFCA8CF00DE4940 /* WJFoodMultiple.m */; };
 		9FD91AC61CFCA9EE00DE4940 /* WJFoodMultipleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD91AC51CFCA9EE00DE4940 /* WJFoodMultipleModel.m */; };
 		9FE521D71CFD68A8002B1901 /* WJSubCategoryInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE521D61CFD68A8002B1901 /* WJSubCategoryInfo.m */; };
-		9FE521E01CFD7254002B1901 /* BDDynamicTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE521DA1CFD7254002B1901 /* BDDynamicTree.m */; };
-		9FE521E11CFD7254002B1901 /* BDDynamicTreeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE521DC1CFD7254002B1901 /* BDDynamicTreeCell.m */; };
-		9FE521E21CFD7254002B1901 /* BDDynamicTreeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FE521DD1CFD7254002B1901 /* BDDynamicTreeCell.xib */; };
-		9FE521E31CFD7254002B1901 /* BDDynamicTreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE521DF1CFD7254002B1901 /* BDDynamicTreeNode.m */; };
-		9FE521E71CFD8250002B1901 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9FE521E41CFD8250002B1901 /* 2.jpg */; };
-		9FE521E81CFD8250002B1901 /* icon_minus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FE521E51CFD8250002B1901 /* icon_minus@2x.png */; };
-		9FE521E91CFD8250002B1901 /* icon_plus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FE521E61CFD8250002B1901 /* icon_plus@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,6 +166,21 @@
 		9F176F641CF351F900EDBF56 /* WJIPAddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJIPAddressModel.m; sourceTree = "<group>"; };
 		9F176F661CF3522B00EDBF56 /* WJIPAddressReturnModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJIPAddressReturnModel.h; sourceTree = "<group>"; };
 		9F176F671CF3522B00EDBF56 /* WJIPAddressReturnModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJIPAddressReturnModel.m; sourceTree = "<group>"; };
+		9F9840691CFFE3920074A930 /* BDDynamicTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDDynamicTree.h; sourceTree = "<group>"; };
+		9F98406A1CFFE3920074A930 /* BDDynamicTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDDynamicTree.m; sourceTree = "<group>"; };
+		9F98406B1CFFE3920074A930 /* BDDynamicTreeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDDynamicTreeCell.h; sourceTree = "<group>"; };
+		9F98406C1CFFE3920074A930 /* BDDynamicTreeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDDynamicTreeCell.m; sourceTree = "<group>"; };
+		9F98406D1CFFE3920074A930 /* BDDynamicTreeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BDDynamicTreeCell.xib; sourceTree = "<group>"; };
+		9F98406E1CFFE3920074A930 /* BDDynamicTreeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDDynamicTreeNode.h; sourceTree = "<group>"; };
+		9F98406F1CFFE3920074A930 /* BDDynamicTreeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDDynamicTreeNode.m; sourceTree = "<group>"; };
+		9F9840711CFFE3920074A930 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
+		9F9840721CFFE3920074A930 /* icon_minus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_minus@2x.png"; sourceTree = "<group>"; };
+		9F9840731CFFE3920074A930 /* icon_plus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_plus@2x.png"; sourceTree = "<group>"; };
+		9F9840741CFFE3920074A930 /* tree_list@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tree_list@2x.png"; sourceTree = "<group>"; };
+		9F9840751CFFE3920074A930 /* tree_minus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tree_minus@2x.png"; sourceTree = "<group>"; };
+		9F9840761CFFE3920074A930 /* tree_plus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tree_plus@2x.png"; sourceTree = "<group>"; };
+		9F9840811D0034ED0074A930 /* WJFoodMenuQueryListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJFoodMenuQueryListController.h; sourceTree = "<group>"; };
+		9F9840821D0034ED0074A930 /* WJFoodMenuQueryListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJFoodMenuQueryListController.m; sourceTree = "<group>"; };
 		9FBA95D71CF20A060037597F /* WJBaseReturnModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJBaseReturnModel.h; sourceTree = "<group>"; };
 		9FBA95D81CF20A060037597F /* WJBaseReturnModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJBaseReturnModel.m; sourceTree = "<group>"; };
 		9FBA95DA1CF20D8C0037597F /* WJIdentityCardQueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJIdentityCardQueryController.h; sourceTree = "<group>"; };
@@ -238,8 +257,8 @@
 		9FD91AB61CFCA28700DE4940 /* WJCategoryInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJCategoryInfo.m; sourceTree = "<group>"; };
 		9FD91AB81CFCA45800DE4940 /* WJBigCategoryInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJBigCategoryInfo.h; sourceTree = "<group>"; };
 		9FD91AB91CFCA45800DE4940 /* WJBigCategoryInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJBigCategoryInfo.m; sourceTree = "<group>"; };
-		9FD91ABB1CFCA5F000DE4940 /* WJCategoryInfoFoodModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJCategoryInfoFoodModel.h; sourceTree = "<group>"; };
-		9FD91ABC1CFCA5F000DE4940 /* WJCategoryInfoFoodModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJCategoryInfoFoodModel.m; sourceTree = "<group>"; };
+		9FD91ABB1CFCA5F000DE4940 /* WJAllCategoryInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJAllCategoryInfoModel.h; sourceTree = "<group>"; };
+		9FD91ABC1CFCA5F000DE4940 /* WJAllCategoryInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJAllCategoryInfoModel.m; sourceTree = "<group>"; };
 		9FD91ABE1CFCA65D00DE4940 /* WJAllCategoryInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJAllCategoryInfo.h; sourceTree = "<group>"; };
 		9FD91ABF1CFCA65D00DE4940 /* WJAllCategoryInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJAllCategoryInfo.m; sourceTree = "<group>"; };
 		9FD91AC11CFCA8CF00DE4940 /* WJFoodMultiple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJFoodMultiple.h; sourceTree = "<group>"; };
@@ -248,16 +267,6 @@
 		9FD91AC51CFCA9EE00DE4940 /* WJFoodMultipleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJFoodMultipleModel.m; sourceTree = "<group>"; };
 		9FE521D51CFD68A8002B1901 /* WJSubCategoryInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJSubCategoryInfo.h; sourceTree = "<group>"; };
 		9FE521D61CFD68A8002B1901 /* WJSubCategoryInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJSubCategoryInfo.m; sourceTree = "<group>"; };
-		9FE521D91CFD7254002B1901 /* BDDynamicTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDDynamicTree.h; sourceTree = "<group>"; };
-		9FE521DA1CFD7254002B1901 /* BDDynamicTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDDynamicTree.m; sourceTree = "<group>"; };
-		9FE521DB1CFD7254002B1901 /* BDDynamicTreeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDDynamicTreeCell.h; sourceTree = "<group>"; };
-		9FE521DC1CFD7254002B1901 /* BDDynamicTreeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDDynamicTreeCell.m; sourceTree = "<group>"; };
-		9FE521DD1CFD7254002B1901 /* BDDynamicTreeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BDDynamicTreeCell.xib; sourceTree = "<group>"; };
-		9FE521DE1CFD7254002B1901 /* BDDynamicTreeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDDynamicTreeNode.h; sourceTree = "<group>"; };
-		9FE521DF1CFD7254002B1901 /* BDDynamicTreeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDDynamicTreeNode.m; sourceTree = "<group>"; };
-		9FE521E41CFD8250002B1901 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
-		9FE521E51CFD8250002B1901 /* icon_minus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_minus@2x.png"; sourceTree = "<group>"; };
-		9FE521E61CFD8250002B1901 /* icon_plus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_plus@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -370,6 +379,8 @@
 				9F176F5F1CF34FF200EDBF56 /* WJIPAddressController.m */,
 				9FD91AA01CFC96C400DE4940 /* WJFoodMenuQueryController.h */,
 				9FD91AA11CFC96C400DE4940 /* WJFoodMenuQueryController.m */,
+				9F9840811D0034ED0074A930 /* WJFoodMenuQueryListController.h */,
+				9F9840821D0034ED0074A930 /* WJFoodMenuQueryListController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -535,6 +546,19 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		9F9840701CFFE3920074A930 /* TreeImage */ = {
+			isa = PBXGroup;
+			children = (
+				9F9840711CFFE3920074A930 /* 2.jpg */,
+				9F9840721CFFE3920074A930 /* icon_minus@2x.png */,
+				9F9840731CFFE3920074A930 /* icon_plus@2x.png */,
+				9F9840741CFFE3920074A930 /* tree_list@2x.png */,
+				9F9840751CFFE3920074A930 /* tree_minus@2x.png */,
+				9F9840761CFFE3920074A930 /* tree_plus@2x.png */,
+			);
+			path = TreeImage;
 			sourceTree = "<group>";
 		};
 		9FBF733F1CF0118D006F8CC5 = {
@@ -743,8 +767,8 @@
 				9FD91AB91CFCA45800DE4940 /* WJBigCategoryInfo.m */,
 				9FD91ABE1CFCA65D00DE4940 /* WJAllCategoryInfo.h */,
 				9FD91ABF1CFCA65D00DE4940 /* WJAllCategoryInfo.m */,
-				9FD91ABB1CFCA5F000DE4940 /* WJCategoryInfoFoodModel.h */,
-				9FD91ABC1CFCA5F000DE4940 /* WJCategoryInfoFoodModel.m */,
+				9FD91ABB1CFCA5F000DE4940 /* WJAllCategoryInfoModel.h */,
+				9FD91ABC1CFCA5F000DE4940 /* WJAllCategoryInfoModel.m */,
 				9FD91AC11CFCA8CF00DE4940 /* WJFoodMultiple.h */,
 				9FD91AC21CFCA8CF00DE4940 /* WJFoodMultiple.m */,
 				9FD91AC41CFCA9EE00DE4940 /* WJFoodMultipleModel.h */,
@@ -756,16 +780,14 @@
 		9FE521D81CFD7254002B1901 /* BDDynamicTree */ = {
 			isa = PBXGroup;
 			children = (
-				9FE521E41CFD8250002B1901 /* 2.jpg */,
-				9FE521E51CFD8250002B1901 /* icon_minus@2x.png */,
-				9FE521E61CFD8250002B1901 /* icon_plus@2x.png */,
-				9FE521D91CFD7254002B1901 /* BDDynamicTree.h */,
-				9FE521DA1CFD7254002B1901 /* BDDynamicTree.m */,
-				9FE521DB1CFD7254002B1901 /* BDDynamicTreeCell.h */,
-				9FE521DC1CFD7254002B1901 /* BDDynamicTreeCell.m */,
-				9FE521DD1CFD7254002B1901 /* BDDynamicTreeCell.xib */,
-				9FE521DE1CFD7254002B1901 /* BDDynamicTreeNode.h */,
-				9FE521DF1CFD7254002B1901 /* BDDynamicTreeNode.m */,
+				9F9840691CFFE3920074A930 /* BDDynamicTree.h */,
+				9F98406A1CFFE3920074A930 /* BDDynamicTree.m */,
+				9F98406B1CFFE3920074A930 /* BDDynamicTreeCell.h */,
+				9F98406C1CFFE3920074A930 /* BDDynamicTreeCell.m */,
+				9F98406D1CFFE3920074A930 /* BDDynamicTreeCell.xib */,
+				9F98406E1CFFE3920074A930 /* BDDynamicTreeNode.h */,
+				9F98406F1CFFE3920074A930 /* BDDynamicTreeNode.m */,
+				9F9840701CFFE3920074A930 /* TreeImage */,
 			);
 			path = BDDynamicTree;
 			sourceTree = "<group>";
@@ -875,17 +897,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FBF73A41CF016D7006F8CC5 /* Main.storyboard in Resources */,
+				9F98407F1CFFE3920074A930 /* tree_minus@2x.png in Resources */,
 				9F05A13D1CF164920080C08E /* WJBaseCollectionViewCell.xib in Resources */,
 				9FBA95DE1CF20DDC0037597F /* WJIdentityCardQueryController.xib in Resources */,
 				9FD7D0771CF03791007EDAFF /* Menu.plist in Resources */,
 				9F05A16C1CF1AEAE0080C08E /* KVNProgressView.xib in Resources */,
-				9FE521E21CFD7254002B1901 /* BDDynamicTreeCell.xib in Resources */,
-				9FE521E81CFD8250002B1901 /* icon_minus@2x.png in Resources */,
+				9F9840791CFFE3920074A930 /* BDDynamicTreeCell.xib in Resources */,
+				9F9840801CFFE3920074A930 /* tree_plus@2x.png in Resources */,
+				9F98407B1CFFE3920074A930 /* 2.jpg in Resources */,
+				9F98407E1CFFE3920074A930 /* tree_list@2x.png in Resources */,
 				9F11E1FB1CF0AFA400D87C61 /* WJNumberLocationController.xib in Resources */,
+				9F98407D1CFFE3920074A930 /* icon_plus@2x.png in Resources */,
 				9FD91AA41CFC970D00DE4940 /* WJFoodMenuQueryController.xib in Resources */,
-				9FE521E91CFD8250002B1901 /* icon_plus@2x.png in Resources */,
+				9F98407C1CFFE3920074A930 /* icon_minus@2x.png in Resources */,
 				9FD7D07C1CF0534D007EDAFF /* contact.txt in Resources */,
-				9FE521E71CFD8250002B1901 /* 2.jpg in Resources */,
 				9FBF73A31CF016D7006F8CC5 /* LaunchScreen.storyboard in Resources */,
 				9F176F621CF3501700EDBF56 /* WJIPAddressController.xib in Resources */,
 				9FBF73581CF0118F006F8CC5 /* Assets.xcassets in Resources */,
@@ -916,9 +941,9 @@
 				9FBA95E41CF213BB0037597F /* WJIdentityCardQueryReturnModel.m in Sources */,
 				9F11E2141CF0CAA500D87C61 /* WJLeisureTravelController.m in Sources */,
 				9FD91AC31CFCA8CF00DE4940 /* WJFoodMultiple.m in Sources */,
-				9FE521E31CFD7254002B1901 /* BDDynamicTreeNode.m in Sources */,
+				9F98407A1CFFE3920074A930 /* BDDynamicTreeNode.m in Sources */,
 				9FD7D0A31CF05BCA007EDAFF /* WJGridModel.m in Sources */,
-				9FE521E01CFD7254002B1901 /* BDDynamicTree.m in Sources */,
+				9F9840771CFFE3920074A930 /* BDDynamicTree.m in Sources */,
 				9F11E2171CF0CABB00D87C61 /* WJConvenienceServicesController.m in Sources */,
 				9FBA95D91CF20A060037597F /* WJBaseReturnModel.m in Sources */,
 				9FBF73911CF014EB006F8CC5 /* NSDate+Extension.m in Sources */,
@@ -927,6 +952,7 @@
 				9FD91AC01CFCA65D00DE4940 /* WJAllCategoryInfo.m in Sources */,
 				9FD91AC61CFCA9EE00DE4940 /* WJFoodMultipleModel.m in Sources */,
 				9FD7D0951CF05932007EDAFF /* MJFoundation.m in Sources */,
+				9F9840831D0034ED0074A930 /* WJFoodMenuQueryListController.m in Sources */,
 				9FD7D09B1CF05932007EDAFF /* NSObject+MJKeyValue.m in Sources */,
 				9F05A1671CF1AEAE0080C08E /* UIColor+KVNContrast.m in Sources */,
 				9FBF73941CF014EB006F8CC5 /* UIView+Extension.m in Sources */,
@@ -943,7 +969,7 @@
 				9FD7D0981CF05932007EDAFF /* MJPropertyType.m in Sources */,
 				9FD91AA81CFC99A700DE4940 /* WJRecipe.m in Sources */,
 				9F11E1F91CF0ABFD00D87C61 /* WJNumberLocationController.m in Sources */,
-				9FE521E11CFD7254002B1901 /* BDDynamicTreeCell.m in Sources */,
+				9F9840781CFFE3920074A930 /* BDDynamicTreeCell.m in Sources */,
 				9FD7D0991CF05932007EDAFF /* NSObject+MJClass.m in Sources */,
 				9FD7D0A01CF05999007EDAFF /* WJTabBarItemModel.m in Sources */,
 				9FD7D09D1CF05932007EDAFF /* NSString+MJExtension.m in Sources */,
@@ -952,7 +978,7 @@
 				9F11E2111CF0CA1F00D87C61 /* WJFinancialFundController.m in Sources */,
 				9F05A16B1CF1AEAE0080C08E /* KVNProgressConfiguration.m in Sources */,
 				9F05A1431CF1AA8F0080C08E /* WJNumberLocationResultModel.m in Sources */,
-				9FD91ABD1CFCA5F000DE4940 /* WJCategoryInfoFoodModel.m in Sources */,
+				9FD91ABD1CFCA5F000DE4940 /* WJAllCategoryInfoModel.m in Sources */,
 				9F176F651CF351F900EDBF56 /* WJIPAddressModel.m in Sources */,
 				9F05A1691CF1AEAE0080C08E /* UIImage+KVNImageEffects.m in Sources */,
 				9FD91AB71CFCA28700DE4940 /* WJCategoryInfo.m in Sources */,

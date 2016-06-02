@@ -14,37 +14,42 @@
 #import "WJSubCategoryInfo.h"
 #import "WJBigCategoryInfo.h"
 #import "WJAllCategoryInfo.h"
-#import "WJCategoryInfoFoodModel.h"
+#import "WJAllCategoryInfoModel.h"
 #import "BDDynamicTree.h"
 #import "BDDynamicTreeNode.h"
+#import "WJFoodMenuQueryListController.h"
 
-@interface WJFoodMenuQueryController ()<BDDynamicTreeDelegate>
+@interface WJFoodMenuQueryController ()<BDDynamicTreeDelegate,UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet BDDynamicTree *tableTree;
 
 /**
  *  树型控件
  */
-@property (nonatomic,strong) BDDynamicTree *dynamicTree;
+//@property (nonatomic,strong) BDDynamicTree *dynamicTree;
 /**
  *  树型控件的数据节点数组
  */
 @property(nonatomic,strong) NSMutableArray *arrayNodes;
 
+@property (weak, nonatomic) IBOutlet UITextField *txtFoodMenuName;
+- (IBAction)btnSearchClick:(id)sender;
 @end
 
 @implementation WJFoodMenuQueryController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    //self.view.backgroundColor = [UIColor grayColor];
     [self getCategoryInfoFoodModel];
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self btnSearchClick:nil];
+    return YES;
 }
 
 /**
@@ -68,15 +73,15 @@
                 NSLog(@"dic:%@", dic);
         
         // 请求成功，解析数据
-        WJCategoryInfoFoodModel *categoryInfoFoodModel = [WJCategoryInfoFoodModel mj_objectWithKeyValues:responseObject];
-        WJLog(@"categoryInfoFoodModel:%@", categoryInfoFoodModel);
-        WJLog(@"categoryInfoFoodModel.result:%@", categoryInfoFoodModel.result);
-        if ([categoryInfoFoodModel.retCode isEqualToString:@"200"]) {
-            [self modelToNodes:categoryInfoFoodModel];
+        WJAllCategoryInfoModel *allCategoryInfoModel = [WJAllCategoryInfoModel mj_objectWithKeyValues:responseObject];
+        WJLog(@"allCategoryInfoModel:%@", allCategoryInfoModel);
+        WJLog(@"allCategoryInfoModel:%@", allCategoryInfoModel.result);
+        if ([allCategoryInfoModel.retCode isEqualToString:@"200"]) {
+            [self allCategoryInfoModelToNodes:allCategoryInfoModel];
         }
         else
         {
-            NSString *strError = [NSString stringWithFormat:@"%@%@", categoryInfoFoodModel.retCode,categoryInfoFoodModel.msg];
+            NSString *strError = [NSString stringWithFormat:@"%@%@", allCategoryInfoModel.retCode,allCategoryInfoModel.msg];
             WJLog(@"%@", strError);
             [KVNProgress showErrorWithStatus:strError];
         }
@@ -91,14 +96,14 @@
 /**
  *  返回的数据模型转成nodes数据
  *
- *  @param categoryInfoFoodModel 模型数据
+ *  @param allCategoryInfoModel 所有标签分类模型数据
  */
-- (void) modelToNodes:(WJCategoryInfoFoodModel *)categoryInfoFoodModel
+- (void) allCategoryInfoModelToNodes:(WJAllCategoryInfoModel *)allCategoryInfoModel
 {
     if (_arrayNodes == nil) {
         _arrayNodes = [[NSMutableArray alloc] init];
     }
-    WJAllCategoryInfo *all = categoryInfoFoodModel.result;
+    WJAllCategoryInfo *all = allCategoryInfoModel.result;
     //获取顶级节点的子节点数组
     NSMutableArray *allSubNodes = [NSMutableArray array];
     for (WJBigCategoryInfo *bigCategoryInfo in all.childs) {
@@ -120,10 +125,9 @@
         }
     }
     
-    _dynamicTree = [[BDDynamicTree alloc] initWithFrame:CGRectMake(0, 100, 300, 300) nodes:self.arrayNodes];
-    //_dynamicTree.backgroundColor = [UIColor grayColor];
-    _dynamicTree.delegate = self;
-    [self.view addSubview:_dynamicTree];
+    self.tableTree.treeNodes = self.arrayNodes;
+    self.tableTree.delegate = self;
+     [self.tableTree expandRoot];
 }
 /**
  *  添加分类数据到arrayNodes中
@@ -141,6 +145,7 @@
     node.name = categoryInfo.name;
     node.data = @{@"name" : categoryInfo.name};
     node.subNodes = subNodes;
+    node.isOpen = YES;
     if (categoryInfo.parentId==nil) {
         node.originX = 20.f;
     }
@@ -167,18 +172,66 @@
     return node;
 }
 
-//-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-//{
-//    [self getCategoryInfoFoodModel];
-//}
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)dynamicTree:(BDDynamicTree *)dynamicTree didSelectedRowWithNode:(BDDynamicTreeNode *)node
+{
+    [self presentVCwithName:nil cid:node.nodeId];
 }
-*/
+
+-(void) presentVCwithName:(NSString *)name cid:(NSString *)cid{
+    WJFoodMenuQueryListController *vc=[[WJFoodMenuQueryListController alloc] init];
+    vc.name = name;
+    vc.cid = cid;
+    vc.view.backgroundColor = [UIColor blueColor];
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
+/**
+ *  搜索菜谱名称
+ */
+- (IBAction)btnSearchClick:(id)sender {
+    [self presentVCwithName:self.txtFoodMenuName.text cid:nil];
+    
+    /*
+    [KVNProgress showWithStatus:@"正在获取数据，请稍等..."];
+    if (self.txtFoodMenuName.text== nil || [self.txtFoodMenuName.text isEqualToString:@""]) {
+        [KVNProgress showErrorWithStatus:@"菜谱名称不允许为空！"];
+        return;
+    }
+    // 初始化Manager
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    // 不加上这句话，会报“Request failed: unacceptable content-type: text/plain”错误，因为我们要获取text/plain类型数据
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    // Get请求
+    NSString *strURL = [NSString stringWithFormat:@"http://apicloud.mob.com/v1/cook/menu/search?key=%@&name=%@",appKey, self.txtFoodMenuName.text];
+    [manager GET:strURL parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+        // 这里可以获取到目前的数据请求的进度
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        WJLog(@"responseObject:%@", responseObject);
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers | NSJSONReadingMutableLeaves error:nil];
+        NSLog(@"dic:%@", dic);
+        
+        // 请求成功，解析数据
+        WJFoodMultipleModel *foodMultipleModel = [WJFoodMultipleModel mj_objectWithKeyValues:responseObject];
+        WJLog(@"foodMultipleModel:%@", foodMultipleModel);
+        WJLog(@"foodMultipleModel:%@", foodMultipleModel.result);
+        if ([foodMultipleModel.retCode isEqualToString:@"200"]) {
+            
+        }
+        else
+        {
+            NSString *strError = [NSString stringWithFormat:@"%@%@", foodMultipleModel.retCode,foodMultipleModel.msg];
+            WJLog(@"%@", strError);
+            [KVNProgress showErrorWithStatus:strError];
+        }
+        [KVNProgress dismiss];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        // 请求失败
+        WJLog(@"%@", [error localizedDescription]);
+        [KVNProgress showErrorWithStatus:[error localizedDescription]];
+        [KVNProgress dismiss];
+    }];
+     */
+}
 
 @end
