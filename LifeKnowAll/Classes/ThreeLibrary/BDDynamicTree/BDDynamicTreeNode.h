@@ -22,6 +22,7 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
+
 #import <Foundation/Foundation.h>
 
 @interface BDDynamicTreeNode : NSObject
@@ -34,6 +35,7 @@
 @property (nonatomic, strong) NSString      *nodeId;            //当前节点id
 @property (nonatomic, assign) BOOL          isDepartment;       //是否是部门
 @property (nonatomic, assign) BOOL          isOpen;             //是否展开的
+@property (nonatomic, assign) NSInteger     HiddenCode;           //是否显示编码
 
 //检查是否根节点
 - (BOOL)isRoot;

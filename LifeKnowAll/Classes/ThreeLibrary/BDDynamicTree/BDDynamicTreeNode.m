@@ -24,6 +24,7 @@
 
 #import "BDDynamicTreeNode.h"
 
+
 @implementation BDDynamicTreeNode
 
 - (BOOL)isRoot

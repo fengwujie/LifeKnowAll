@@ -24,6 +24,7 @@
 
 #import <UIKit/UIKit.h>
 
+
 @class BDDynamicTree;
 @class BDDynamicTreeNode;
 
@@ -33,6 +34,11 @@
 @end
 
 @interface BDDynamicTree : UIView
+{
+    NSArray * treeNodes;
+    NSInteger HiddenCode;
+}
+
 @property (nonatomic,assign) id <BDDynamicTreeDelegate>delegate;
 
 /*!
@@ -43,5 +49,13 @@
  *@return 当前对象
  */
 - (id)initWithFrame:(CGRect)frame nodes:(NSArray *)nodes;
+
+@property (retain)  NSArray * treeNodes;
+@property  NSInteger HiddenCode;
+
+//-(void)setFrame:(CGRect)frame;
+
+
+-(void)expandRoot;
 
 @end

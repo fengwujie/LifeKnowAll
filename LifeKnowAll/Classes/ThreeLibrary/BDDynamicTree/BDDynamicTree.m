@@ -35,35 +35,82 @@
 @end
 
 @implementation BDDynamicTree
+@synthesize treeNodes,HiddenCode;
 
 - (id)initWithFrame:(CGRect)frame nodes:(NSArray *)nodes
 {
     self = [super initWithFrame:frame];
     if (self) {
+ 
+        treeNodes=nodes;
         
-        _dataSource = [[NSMutableArray alloc] init];
-        _nodesArray = [[NSMutableArray alloc] init];
-        
-        if (nodes && nodes.count) {
-            [_nodesArray addObjectsFromArray:nodes];
-            
-            //添加根节点
-            [_dataSource addObject:[self rootNode]];
-        }
-        
-        //tableview
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)
-                                                  style:UITableViewStylePlain];
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
-        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _tableView.backgroundColor = [UIColor redColor];
-        self.backgroundColor = [UIColor redColor];
-        [self addSubview:_tableView];
+        [self drawTree];
+
     }
     return self;
 }
 
+
+-(void)drawTree
+{
+   if (treeNodes && treeNodes.count)
+    {
+        
+        _dataSource = [[NSMutableArray alloc] init];
+        _nodesArray = [[NSMutableArray alloc] init];
+        
+        [_nodesArray addObjectsFromArray:treeNodes];
+        
+        //添加根节点
+        [_dataSource addObject:[self rootNode]];
+    }
+    
+    [_tableView removeFromSuperview];
+    
+    for (BDDynamicTreeNode *node in _nodesArray) {
+        if ((node.isDepartment) &&(node.isOpen))
+        {
+            node.isOpen=false;
+        }
+    }
+    
+    
+    //tableview
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)
+                                              style:UITableViewStylePlain];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    //边框
+    _tableView.layer.masksToBounds=YES;
+    _tableView.layer.borderWidth=1.0;
+    _tableView.layer.borderColor=[[UIColor colorWithRed:163.0/255 green:163.0/255 blue:163.0/255 alpha:0.6] CGColor];
+    
+    _tableView.layer.cornerRadius = 6.0f;
+    
+    
+    [self addSubview:_tableView];
+}
+
+
+
+
+-(void)expandRoot
+{
+    [self drawTree];
+    
+    if ([_dataSource count]>0)
+    {
+        BDDynamicTreeNode *node = [self rootNode];
+        [self.delegate dynamicTree:self didSelectedRowWithNode:node];
+        
+        NSUInteger index=1;
+        
+        [self addSubNodesByFatherNode:node atIndex:index];
+    }
+    
+}
 #pragma mark - private methods
 
 - (BDDynamicTreeNode *)rootNode
@@ -88,6 +135,7 @@
         for(BDDynamicTreeNode *node in _nodesArray) {
             if ([node.fatherNodeId isEqualToString:fatherNode.nodeId]) {
                 node.originX = fatherNode.originX + 10/*space*/;
+                node.HiddenCode = HiddenCode;
                 [array addObject:node];
                 [cellIndexPaths addObject:[NSIndexPath indexPathForRow:count++ inSection:0]];
             }
@@ -153,6 +201,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+  //  NSLog(@"didSelectRowAtIndexPath");
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     BDDynamicTreeNode *node = _dataSource[indexPath.row];

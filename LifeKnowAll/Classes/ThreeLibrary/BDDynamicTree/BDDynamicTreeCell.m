@@ -22,10 +22,11 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
+
 #import "BDDynamicTreeCell.h"
 
-#define DepartmentCellHeight 44
-#define EmployeeCellHeight  60
+#define DepartmentCellHeight 40
+#define EmployeeCellHeight  45
 
 @interface BDDynamicTreeCell ()
 @end
@@ -56,21 +57,31 @@
         [self setCellStypeWithType:cellType originX:node.originX];
         
         if (cellType == CellType_Department) {
-            if ([node isRoot]) {
+            if (([node isRoot])||(node.subNodes.count ==0))
+            {
                 self.labelTitle.text = [NSString stringWithFormat:@"%@",node.name];
             }else{
-                self.labelTitle.text = [NSString stringWithFormat:@"%@(%lu)",node.name,(unsigned long)node.subNodes.count];
+                
+                self.labelTitle.text = [NSString stringWithFormat:@"%@ (%lu)",node.name,(unsigned long)node.subNodes.count];
             }
             
             if (node.isOpen) {
-                self.plusImageView.image = [UIImage imageNamed:@"icon_minus"];
+                self.plusImageView.image = [UIImage imageNamed:@"tree_minus"];
             }
         }
         else{
             NSDictionary *dic = node.data;
-            self.labelTitle.text = dic[@"name"];
             
-            self.avatarImageView.image = [UIImage imageNamed:@"2.jpg"];
+            if (node.HiddenCode==0)
+            {
+              self.labelTitle.text= [NSString stringWithFormat:@"(%@)%@",node.nodeId,dic[@"name"]];
+            }
+            else
+            {
+              self.labelTitle.text = dic[@"name"];
+            }
+            
+            self.avatarImageView.image = [UIImage imageNamed:@"tree_list.png"];
         }
     }
 }
@@ -88,6 +99,7 @@
         self.plusImageView.frame = CGRectMake(x, self.plusImageView.frame.origin.y,
                                               self.plusImageView.frame.size.width,
                                               self.plusImageView.frame.size.height);
+
         
         //设置 label的位置
         self.labelTitle.frame = CGRectMake(self.plusImageView.frame.origin.x+self.plusImageView.frame.size.width + 5/*space*/, 0,
@@ -97,9 +109,11 @@
         //underline
         self.underLine.frame = CGRectMake(x,
                                           self.contentView.frame.size.height - 0.5,
-                                          self.contentView.frame.size.width - x,
+                                          self.contentView.frame.size.width - x-30,
                                           0.5);
-        self.underLine.backgroundColor = [UIColor colorWithRed:242/255.f green:244/255.f blue:246/255.f alpha:1];
+      //   self.underLine.backgroundColor=[UIColor grayColor];
+        
+        self.underLine.backgroundColor = [UIColor colorWithRed:222/255.f green:224/255.f blue:226/255.f alpha:1];
         
     }
     else{
@@ -109,11 +123,19 @@
                                             self.contentView.frame.origin.y,
                                             self.contentView.frame.size.width, EmployeeCellHeight);
         
+        
         self.plusImageView.hidden = YES;
         
         //设置头像的位置
-        CGFloat iconWidth = EmployeeCellHeight - 10;
-        self.avatarImageView.frame = CGRectMake(x, EmployeeCellHeight/2.f - iconWidth/2.f, iconWidth, iconWidth);
+      //  CGFloat iconWidth = EmployeeCellHeight - 10;
+        
+      //  self.avatarImageView.frame = CGRectMake(x, EmployeeCellHeight/2.f - iconWidth/2.f, iconWidth, iconWidth);
+        
+        self.avatarImageView.frame = CGRectMake(x, 14,
+                                              18,
+                                             18);
+        
+
         
         //这是label
         self.labelTitle.frame = CGRectMake(self.avatarImageView.frame.origin.x+self.avatarImageView.frame.size.width + 5/*space*/,
@@ -126,7 +148,9 @@
                                           self.contentView.frame.size.height - 0.5,
                                           self.contentView.frame.size.width - x,
                                           0.5);
-        self.underLine.backgroundColor = [UIColor colorWithRed:242/255.f green:244/255.f blue:246/255.f alpha:1];
+      //  self.underLine.backgroundColor=[UIColor grayColor];
+        self.underLine.backgroundColor = [UIColor colorWithRed:222/255.f green:224/255.f blue:226/255.f alpha:1];
+        
     }
 }
 
