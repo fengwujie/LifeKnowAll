@@ -25,7 +25,13 @@
  *  返回数据条数(默认20)
  */
 @property( nonatomic , assign ) int size;
+/**
+ *  菜谱列表
+ */
+@property (nonatomic, strong) NSMutableArray *arrayFoodMenu;
 @end
+
+static NSString *identifier=@"foodMenu";
 
 @implementation WJFoodMenuQueryListController
 
@@ -42,13 +48,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    [self loadData];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (NSMutableArray *)arrayFoodMenu
+{
+    if (_arrayFoodMenu == nil) {
+        _arrayFoodMenu = [NSMutableArray array];
+    }
+    return _arrayFoodMenu;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -85,7 +99,9 @@
      WJLog(@"foodMultipleModel:%@", foodMultipleModel);
      WJLog(@"foodMultipleModel:%@", foodMultipleModel.result);
      if ([foodMultipleModel.retCode isEqualToString:@"200"]) {
-     
+         NSArray *arrayResult = foodMultipleModel.result.list;
+         [self.arrayFoodMenu addObjectsFromArray:arrayResult];
+         [self.tableView reloadData];
      }
      else
      {
@@ -108,23 +124,23 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 #warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
-    return 0;
+    return self.arrayFoodMenu.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+    WJFood *food = [self.arrayFoodMenu objectAtIndex:indexPath.row];
+    cell.textLabel.text = food.name;
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

@@ -174,14 +174,17 @@
 
 -(void)dynamicTree:(BDDynamicTree *)dynamicTree didSelectedRowWithNode:(BDDynamicTreeNode *)node
 {
-    [self presentVCwithName:nil cid:node.nodeId];
+    if (node.isDepartment!=YES) {
+        [self presentVCwithName:nil cid:node.nodeId];
+    }
+    
 }
 
 -(void) presentVCwithName:(NSString *)name cid:(NSString *)cid{
     WJFoodMenuQueryListController *vc=[[WJFoodMenuQueryListController alloc] init];
     vc.name = name;
     vc.cid = cid;
-    vc.view.backgroundColor = [UIColor blueColor];
+    //vc.view.backgroundColor = [UIColor blueColor];
     [self presentViewController:vc animated:YES completion:nil];
 }
 
