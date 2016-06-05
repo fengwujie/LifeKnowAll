@@ -175,24 +175,32 @@
 -(void)dynamicTree:(BDDynamicTree *)dynamicTree didSelectedRowWithNode:(BDDynamicTreeNode *)node
 {
     if (node.isDepartment!=YES) {
-        [self presentVCwithName:nil cid:node.nodeId];
+        [self presentVCwithMenuName:nil cid:node.nodeId name:node.name];
     }
     
 }
 
--(void) presentVCwithName:(NSString *)name cid:(NSString *)cid{
+/**
+ *  跳转到菜谱列表
+ *
+ *  @param menuName 搜索的菜谱名称
+ *  @param cid      标签ID
+ *  @param name     标签名称
+ */
+-(void) presentVCwithMenuName:(NSString *)menuName cid:(NSString *)cid name:(NSString *)name{
     WJFoodMenuQueryListController *vc=[[WJFoodMenuQueryListController alloc] init];
-    vc.name = name;
+    vc.menuName = menuName;
     vc.cid = cid;
+    vc.title = menuName ==nil ? name : menuName;
     //vc.view.backgroundColor = [UIColor blueColor];
-    [self presentViewController:vc animated:YES completion:nil];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 /**
  *  搜索菜谱名称
  */
 - (IBAction)btnSearchClick:(id)sender {
-    [self presentVCwithName:self.txtFoodMenuName.text cid:nil];
+    [self presentVCwithMenuName:self.txtFoodMenuName.text cid:nil name:nil];
     
     /*
     [KVNProgress showWithStatus:@"正在获取数据，请稍等..."];

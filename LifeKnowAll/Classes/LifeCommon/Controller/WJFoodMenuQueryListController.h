@@ -11,9 +11,9 @@
 @interface WJFoodMenuQueryListController : UITableViewController
 
 /**
- *  菜谱名称
+ *  搜索的菜谱名称
  */
-@property (nonatomic,copy) NSString *name;
+@property (nonatomic,copy) NSString *menuName;
 /**
  *  标签分类ID
  */

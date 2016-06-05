@@ -79,8 +79,8 @@ static NSString *identifier=@"foodMenu";
      // 不加上这句话，会报“Request failed: unacceptable content-type: text/plain”错误，因为我们要获取text/plain类型数据
      manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     NSMutableString *param = [NSMutableString stringWithFormat:@"&page=%d&size=%d",self.page,self.size];
-    if (self.name) {
-        [param appendString:[NSString stringWithFormat:@"&name=%@",self.name]];
+    if (self.menuName) {
+        [param appendString:[NSString stringWithFormat:@"&name=%@",self.menuName]];
     }
     if (self.cid) {
         [param appendString:[NSString stringWithFormat:@"&cid=%@",self.cid]];
@@ -134,10 +134,11 @@ static NSString *identifier=@"foodMenu";
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     WJFood *food = [self.arrayFoodMenu objectAtIndex:indexPath.row];
     cell.textLabel.text = food.name;
-    
+    //cell.imageView.image = [UIImage imagewi];
     return cell;
 }
 
