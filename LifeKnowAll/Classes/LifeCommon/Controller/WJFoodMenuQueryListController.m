@@ -14,6 +14,7 @@
 #import "WJFoodMultiple.h"
 #import "WJFoodMultipleModel.h"
 #import "UIImageView+WebCache.h"
+#import "WJFoodMenuCell.h"
 
 
 @interface WJFoodMenuQueryListController ()
@@ -32,7 +33,6 @@
 @property (nonatomic, strong) NSMutableArray *arrayFoodMenu;
 @end
 
-static NSString *identifier=@"foodMenu";
 
 @implementation WJFoodMenuQueryListController
 
@@ -135,11 +135,9 @@ static NSString *identifier=@"foodMenu";
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
-    WJFood *food = [self.arrayFoodMenu objectAtIndex:indexPath.row];
-    cell.textLabel.text = food.name;
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:food.thumbnail] placeholderImage:[UIImage imageNamed:@"2"]];
-    WJLog(@"%d行图片路径：%@",indexPath.row, food.thumbnail);
+
+    WJFoodMenuCell *cell = [WJFoodMenuCell cellWithTableView:tableView];
+    cell.food = [self.arrayFoodMenu objectAtIndex:indexPath.row];
     return cell;
 }
 

@@ -36,7 +36,6 @@ static NSString *cellID = @"gridCell";
         _collectionView.dataSource=self;
         _collectionView.delegate=self;
         [_collectionView setBackgroundColor:[UIColor clearColor]];
-        //[_collectionView setBackgroundColor:WJRandomColor];
         
         //注册Cell，必须要有
         //[_collectionView registerClass:[WJBaseCollectionViewCell class] forCellWithReuseIdentifier:cellID];

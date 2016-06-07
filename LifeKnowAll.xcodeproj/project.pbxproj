@@ -107,6 +107,8 @@
 		9FD91AC31CFCA8CF00DE4940 /* WJFoodMultiple.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD91AC21CFCA8CF00DE4940 /* WJFoodMultiple.m */; };
 		9FD91AC61CFCA9EE00DE4940 /* WJFoodMultipleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD91AC51CFCA9EE00DE4940 /* WJFoodMultipleModel.m */; };
 		9FE521D71CFD68A8002B1901 /* WJSubCategoryInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE521D61CFD68A8002B1901 /* WJSubCategoryInfo.m */; };
+		9FFED7621D066BC5003ED3B3 /* WJFoodMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FFED7601D066BC5003ED3B3 /* WJFoodMenuCell.m */; };
+		9FFED7631D066BC5003ED3B3 /* WJFoodMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FFED7611D066BC5003ED3B3 /* WJFoodMenuCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -316,6 +318,9 @@
 		9FD91AC51CFCA9EE00DE4940 /* WJFoodMultipleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJFoodMultipleModel.m; sourceTree = "<group>"; };
 		9FE521D51CFD68A8002B1901 /* WJSubCategoryInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJSubCategoryInfo.h; sourceTree = "<group>"; };
 		9FE521D61CFD68A8002B1901 /* WJSubCategoryInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJSubCategoryInfo.m; sourceTree = "<group>"; };
+		9FFED75F1D066BC5003ED3B3 /* WJFoodMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJFoodMenuCell.h; sourceTree = "<group>"; };
+		9FFED7601D066BC5003ED3B3 /* WJFoodMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJFoodMenuCell.m; sourceTree = "<group>"; };
+		9FFED7611D066BC5003ED3B3 /* WJFoodMenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WJFoodMenuCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -461,6 +466,9 @@
 				9F176F611CF3501700EDBF56 /* WJIPAddressController.xib */,
 				9FBA95DD1CF20DDC0037597F /* WJIdentityCardQueryController.xib */,
 				9FD91AA31CFC970D00DE4940 /* WJFoodMenuQueryController.xib */,
+				9FFED75F1D066BC5003ED3B3 /* WJFoodMenuCell.h */,
+				9FFED7601D066BC5003ED3B3 /* WJFoodMenuCell.m */,
+				9FFED7611D066BC5003ED3B3 /* WJFoodMenuCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -950,6 +958,7 @@
 				TargetAttributes = {
 					9FBF73471CF0118D006F8CC5 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = U5SN67824Y;
 					};
 					9FBF73601CF0118F006F8CC5 = {
 						CreatedOnToolsVersion = 7.3;
@@ -999,6 +1008,7 @@
 				9F11E1FB1CF0AFA400D87C61 /* WJNumberLocationController.xib in Resources */,
 				9F98407D1CFFE3920074A930 /* icon_plus@2x.png in Resources */,
 				9FD91AA41CFC970D00DE4940 /* WJFoodMenuQueryController.xib in Resources */,
+				9FFED7631D066BC5003ED3B3 /* WJFoodMenuCell.xib in Resources */,
 				9F98407C1CFFE3920074A930 /* icon_minus@2x.png in Resources */,
 				9FD7D07C1CF0534D007EDAFF /* contact.txt in Resources */,
 				9FBF73A31CF016D7006F8CC5 /* LaunchScreen.storyboard in Resources */,
@@ -1083,6 +1093,7 @@
 				9F2B20491D052CA500BCF0BE /* SDWebImageCompat.m in Sources */,
 				9FD91AB71CFCA28700DE4940 /* WJCategoryInfo.m in Sources */,
 				9FD91ABA1CFCA45800DE4940 /* WJBigCategoryInfo.m in Sources */,
+				9FFED7621D066BC5003ED3B3 /* WJFoodMenuCell.m in Sources */,
 				9F05A1561CF1AE230080C08E /* AFURLResponseSerialization.m in Sources */,
 				9F05A13C1CF164910080C08E /* WJBaseCollectionViewCell.m in Sources */,
 				9F11E1EC1CF09EF300D87C61 /* WJLifeCommonController.m in Sources */,
@@ -1233,8 +1244,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = LifeKnowAll/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fengwujie.LifeKnowAll;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1245,8 +1257,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = LifeKnowAll/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fengwujie.LifeKnowAll;
 				PRODUCT_NAME = "$(TARGET_NAME)";
