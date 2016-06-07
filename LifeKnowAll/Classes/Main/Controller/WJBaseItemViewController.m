@@ -14,7 +14,10 @@
 
 @interface WJBaseItemViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
-
+/**
+ *  GRID网格
+ */
+@property (nonatomic , weak) UICollectionView *collectionView;
 @end
 
 static NSString *cellID = @"gridCell";
@@ -32,16 +35,17 @@ static NSString *cellID = @"gridCell";
         //确定是水平滚动，还是垂直滚动
         UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
         [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
-        _collectionView=[[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:flowLayout];
-        _collectionView.dataSource=self;
-        _collectionView.delegate=self;
-        [_collectionView setBackgroundColor:[UIColor clearColor]];
+        UICollectionView *collectionView=[[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:flowLayout];
+        collectionView.dataSource=self;
+        collectionView.delegate=self;
+        [collectionView setBackgroundColor:[UIColor clearColor]];
         
         //注册Cell，必须要有
         //[_collectionView registerClass:[WJBaseCollectionViewCell class] forCellWithReuseIdentifier:cellID];
         
-        [_collectionView registerNib:[UINib nibWithNibName:@"WJBaseCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:cellID];
-        [self.view addSubview:_collectionView];
+        [collectionView registerNib:[UINib nibWithNibName:@"WJBaseCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:cellID];
+        [self.view addSubview:collectionView];
+        _collectionView = collectionView;
     }
     return _collectionView;
 }

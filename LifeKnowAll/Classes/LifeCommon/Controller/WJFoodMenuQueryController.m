@@ -76,6 +76,7 @@
         WJAllCategoryInfoModel *allCategoryInfoModel = [WJAllCategoryInfoModel mj_objectWithKeyValues:responseObject];
         WJLog(@"allCategoryInfoModel:%@", allCategoryInfoModel);
         WJLog(@"allCategoryInfoModel:%@", allCategoryInfoModel.result);
+        [KVNProgress dismiss];
         if ([allCategoryInfoModel.retCode isEqualToString:@"200"]) {
             [self allCategoryInfoModelToNodes:allCategoryInfoModel];
         }
@@ -85,12 +86,11 @@
             WJLog(@"%@", strError);
             [KVNProgress showErrorWithStatus:strError];
         }
-        [KVNProgress dismiss];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [KVNProgress dismiss];
         // 请求失败
         WJLog(@"%@", [error localizedDescription]);
         [KVNProgress showErrorWithStatus:[error localizedDescription]];
-        [KVNProgress dismiss];
     }];
 }
 /**

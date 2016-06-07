@@ -15,7 +15,7 @@
 #import "WJFoodMultipleModel.h"
 #import "UIImageView+WebCache.h"
 #import "WJFoodMenuCell.h"
-
+#import "MJRefresh.h"
 
 @interface WJFoodMenuQueryListController ()
 
@@ -38,7 +38,8 @@
 
 - (int)page
 {
-    return _page+1;
+    _page +=1;
+    return _page;
 }
 
 - (int)size
@@ -50,6 +51,12 @@
     [super viewDidLoad];
     
     [self loadData];
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        //Call this Block When enter the refresh status automatically
+        [self loadData];
+    }];
+    
+    
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -79,16 +86,23 @@
      
      // 不加上这句话，会报“Request failed: unacceptable content-type: text/plain”错误，因为我们要获取text/plain类型数据
      manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    NSMutableString *param = [NSMutableString stringWithFormat:@"&page=%d&size=%d",self.page,self.size];
+    NSMutableDictionary *dicParameters = [NSMutableDictionary dictionary];
+    [dicParameters setObject:appKey forKey:@"key"];
+    [dicParameters setObject:@(self.page) forKey:@"page"];
+    [dicParameters setObject:@(self.size) forKey:@"size"];
+    //NSMutableString *param = [NSMutableString stringWithFormat:@"&page=%d&size=%d",self.page,self.size];
     if (self.menuName) {
-        [param appendString:[NSString stringWithFormat:@"&name=%@",self.menuName]];
+        //[param appendString:[NSString stringWithFormat:@"&name=%@",self.menuName]];
+        [dicParameters setObject:self.menuName forKey:@"name"];
     }
     if (self.cid) {
-        [param appendString:[NSString stringWithFormat:@"&cid=%@",self.cid]];
+        //[param appendString:[NSString stringWithFormat:@"&cid=%@",self.cid]];
+        [dicParameters setObject:self.cid forKey:@"cid"];
     }
      // Get请求
-     NSString *strURL = [NSString stringWithFormat:@"http://apicloud.mob.com/v1/cook/menu/search?key=%@%@",appKey, param];
-     [manager GET:strURL parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+//     NSString *strURL = [NSString stringWithFormat:@"http://apicloud.mob.com/v1/cook/menu/search?key=%@%@",appKey, param];
+    NSString *strURL = @"http://apicloud.mob.com/v1/cook/menu/search";
+     [manager GET:strURL parameters:dicParameters progress:^(NSProgress * _Nonnull downloadProgress) {
      // 这里可以获取到目前的数据请求的进度
      } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
      WJLog(@"responseObject:%@", responseObject);
@@ -99,6 +113,7 @@
      WJFoodMultipleModel *foodMultipleModel = [WJFoodMultipleModel mj_objectWithKeyValues:responseObject];
      WJLog(@"foodMultipleModel:%@", foodMultipleModel);
      WJLog(@"foodMultipleModel:%@", foodMultipleModel.result);
+     [KVNProgress dismiss];
      if ([foodMultipleModel.retCode isEqualToString:@"200"]) {
          NSArray *arrayResult = foodMultipleModel.result.list;
          [self.arrayFoodMenu addObjectsFromArray:arrayResult];
@@ -106,19 +121,16 @@
      }
      else
      {
-     NSString *strError = [NSString stringWithFormat:@"%@%@", foodMultipleModel.retCode,foodMultipleModel.msg];
-     WJLog(@"%@", strError);
-     [KVNProgress showErrorWithStatus:strError];
+         NSString *strError = [NSString stringWithFormat:@"%@%@", foodMultipleModel.retCode,foodMultipleModel.msg];
+         WJLog(@"%@", strError);
+         [KVNProgress showErrorWithStatus:strError];
      }
-     [KVNProgress dismiss];
      } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-     // 请求失败
-     WJLog(@"%@", [error localizedDescription]);
-     [KVNProgress showErrorWithStatus:[error localizedDescription]];
-     [KVNProgress dismiss];
+         [KVNProgress dismiss];
+         // 请求失败
+         WJLog(@"%@", [error localizedDescription]);
+         [KVNProgress showErrorWithStatus:[error localizedDescription]];
      }];
-     
-
 }
 
 #pragma mark - Table view data source

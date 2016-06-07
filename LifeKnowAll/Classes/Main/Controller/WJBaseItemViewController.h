@@ -17,8 +17,4 @@
  *  GRID网格的数据数组
  */
 @property (nonatomic , strong) NSArray *arrayGridModel;
-/**
- *  GRID网格
- */
-@property (nonatomic , weak) UICollectionView *collectionView;
 @end
