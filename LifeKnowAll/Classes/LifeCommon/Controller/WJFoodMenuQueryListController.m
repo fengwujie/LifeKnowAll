@@ -16,6 +16,7 @@
 #import "UIImageView+WebCache.h"
 #import "WJFoodMenuCell.h"
 #import "MJRefresh.h"
+#import "WJFoodMenuDetailController.h"
 
 @interface WJFoodMenuQueryListController ()
 
@@ -50,19 +51,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self loadData];
+    //[self loadData];
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         //Call this Block When enter the refresh status automatically
         [self loadData];
     }];
     
-    
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self.tableView.mj_footer beginRefreshing];
 }
 
 - (NSMutableArray *)arrayFoodMenu
@@ -125,10 +120,12 @@
          WJLog(@"%@", strError);
          [KVNProgress showErrorWithStatus:strError];
      }
+         [self.tableView.mj_footer endRefreshing];
      } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
          [KVNProgress dismiss];
          // 请求失败
          WJLog(@"%@", [error localizedDescription]);
+         [self.tableView.mj_footer endRefreshing];
          [KVNProgress showErrorWithStatus:[error localizedDescription]];
      }];
 }
@@ -153,6 +150,16 @@
     return cell;
 }
 
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPat{
+    
+    WJFood *food = [self.arrayFoodMenu objectAtIndex:indexPat.row];
+    
+    WJFoodMenuDetailController *vc = [[WJFoodMenuDetailController alloc] init];
+    vc.food = food;
+    
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 /*
 // Override to support conditional editing of the table view.
