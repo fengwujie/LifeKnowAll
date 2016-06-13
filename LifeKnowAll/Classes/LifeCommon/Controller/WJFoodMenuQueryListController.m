@@ -157,7 +157,7 @@
     
     WJFoodMenuDetailController *vc = [[WJFoodMenuDetailController alloc] init];
     vc.food = food;
-    
+    vc.title = food.name;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
