@@ -18,7 +18,7 @@
 /**
  *  分类标签
  */
-@property (nonatomic , strong) NSArray *ctgTitles;
+@property (nonatomic , strong) NSString *ctgTitles;
 /**
  *  菜谱id
  */

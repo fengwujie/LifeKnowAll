@@ -11,7 +11,7 @@
 
 #import "UIView+Extension.h"
 #import "UIBarButtonItem+Extension.h"
-#import "NSString+Extension.h"
+//#import "NSString+Extension.h"
 #import "NSDate+Extension.h"
 
 #define appKey @"130828b7e4b30"

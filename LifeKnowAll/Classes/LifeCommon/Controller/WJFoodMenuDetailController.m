@@ -9,8 +9,17 @@
 #import "WJFoodMenuDetailController.h"
 #import "Masonry.h"
 #import "UIImageView+WebCache.h"
+#import "WJMethod.h"
+
+#define lableFont [UIFont systemFontOfSize:16]
+#define margin 5
 
 @interface WJFoodMenuDetailController ()
+
+@property (nonatomic, strong) UIView *sv;
+
+@property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic, strong) UIView *lastView;
 
 @end
 
@@ -18,9 +27,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
-    [self setup2];
+    [self setup];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,129 +41,238 @@
  */
 - (void) setup{
     
-    UIScrollView *scrollView = [[UIScrollView alloc] init];
-    scrollView.backgroundColor = [UIColor yellowColor];
-    // 是否支持滑动最顶端
-    //    scrollView.scrollsToTop = NO;
-    //scrollView.delegate = self;
-    // 设置内容大小
-    scrollView.contentSize = CGSizeMake(320, 460);
-    // 是否反弹
-    //    scrollView.bounces = NO;
-    // 是否分页
-    //    scrollView.pagingEnabled = YES;
-    // 是否滚动
-    //    scrollView.scrollEnabled = NO;
-    //    scrollView.showsHorizontalScrollIndicator = NO;
-    // 设置indicator风格
-    //    scrollView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
-    // 设置内容的边缘和Indicators边缘
-    //    scrollView.contentInset = UIEdgeInsetsMake(0, 50, 50, 0);
-    //    scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 50, 0, 0);
-    // 提示用户,Indicators flash
-    [scrollView flashScrollIndicators];
-    // 是否同时运动,lock
-    scrollView.directionalLockEnabled = YES;
-    [self.view addSubview:scrollView];
-    
-//    [scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.size.mas_equalTo(self.view.size);
-//        [make.center isEqual:self.view];
-//    }];
-    
-    UIView *ctgView = [[UIView alloc] init];
-    ctgView.backgroundColor = [UIColor blueColor];
-    [scrollView addSubview:ctgView];
-    [ctgView mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.left.equalTo(scrollView.mas_left).with.offset(10);
-        make.right.equalTo(scrollView.mas_right).with.offset(-10);
-        make.top.equalTo(scrollView.mas_top).with.offset(70);
-        make.height.equalTo(@300);
-        
-//        make.size.mas_equalTo(CGSizeMake(300, 300));
-//        [make.center isEqual:self.view];
-    }];
-    
-    
-}
-
-- (void)setup2{
-    UIScrollView *scrollView = [UIScrollView new];
-    scrollView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:scrollView];
-    [scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
-    }];
-    
-    UIView *container = [UIView new];
-    container.backgroundColor = [UIColor yellowColor];
-    [scrollView addSubview:container];
-    [container mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(scrollView);
-        make.width.equalTo(scrollView);
-    }];
-    
-    WJLog(@"container.frame:w=%f,h=%f,x=%f,y=%f",container.width,container.height,container.x,container.y);
+    self.scrollView = [[UIScrollView alloc] init];
+    self.scrollView.pagingEnabled = NO;
+    [self.view addSubview:self.scrollView];
+    self.scrollView.backgroundColor = [UIColor whiteColor];
     
     //大图预览
-    UIImageView *imgView = [[UIImageView alloc] init];
-    imgView.backgroundColor = [UIColor redColor];
-    [container addSubview:imgView];
-    [imgView sd_setImageWithURL:[NSURL URLWithString:self.food.recipe.img] placeholderImage:[UIImage imageNamed:@"2"] options:SDWebImageProgressiveDownload];
-    [imgView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.and.top.and.right.equalTo(container);
-        make.height.equalTo(@200);
-//        make.left.equalTo(container.mas_left);
-//        make.top.equalTo(container.mas_top);
-//        make.right.equalTo(container.mas_right);
-//        make.height.mas_equalTo(imgView.width);
+    if (self.food.recipe.img) {
+        UIImageView *imgView = [[UIImageView alloc] init];
+        imgView.contentMode = UIViewContentModeScaleAspectFit;
+        //imgView.backgroundColor =WJRandomColor;
+        [self.scrollView addSubview:imgView];
+        UIImage *image = [self getImageWithUrl:self.food.recipe.img];
+        imgView.image = image;
+        CGSize size = [self getSizeWithImage:image];
+        [imgView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(size);
+            make.top.mas_equalTo(self.scrollView.mas_top).offset(margin);
+            make.centerX.mas_equalTo(self.scrollView.centerX);
+        }];
+        self.lastView = imgView;
+    }
+    
+    //综述
+    if (self.food.recipe.sumary && self.food.recipe.sumary.length>0) {
+        //综述内容
+        UILabel *sumaryLable = [[UILabel alloc] init];
+        [self.scrollView addSubview:sumaryLable];
+        NSString *sumary = [NSString stringWithFormat:@"简介：%@",self.food.recipe.sumary] ;
+        //NSString *sumary = self.food.recipe.sumary ;
+        sumaryLable.text = sumary;
+        //sumaryLable.backgroundColor = WJRandomColor;
+        sumaryLable.textAlignment = NSTextAlignmentLeft;
+        sumaryLable.font = lableFont;
+        sumaryLable.numberOfLines = 0;
+        //        CGSize size = [sumary sizeWithFont:lableFont maxW:screenW - margin * 3];
+        [sumaryLable mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(margin);
+            make.right.mas_equalTo(self.view).offset(-margin);
+            
+            if (self.lastView) {
+                make.top.mas_equalTo(self.lastView.mas_bottom).offset(margin);
+            } else {
+                make.top.mas_equalTo(self.scrollView).offset(margin);
+            }
+            
+        }];
+        self.lastView = sumaryLable;
+    }
+    
+    /*//标签分类
+    if (self.food.ctgTitles) {
+        UILabel *ctgTitlesLable = [[UILabel alloc] init];
+        [self.scrollView addSubview:ctgTitlesLable];
+        NSString *ctgTitles = [NSString stringWithFormat:@"标签分类：%@",self.food.ctgTitles] ;
+        //NSString *sumary = self.food.recipe.sumary ;
+        ctgTitlesLable.text = ctgTitles;
+        //ctgTitlesLable.backgroundColor = WJRandomColor;
+        ctgTitlesLable.textAlignment = NSTextAlignmentLeft;
+        ctgTitlesLable.font = lableFont;
+        ctgTitlesLable.numberOfLines = 0;
+        //        CGSize size = [ctgTitles sizeWithFont:lableFont maxW:screenW - margin * 3];
+        [ctgTitlesLable mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(margin);
+            make.right.mas_equalTo(self.view).offset(-margin);
+            
+            if (self.lastView) {
+                make.top.mas_equalTo(self.lastView.mas_bottom).offset(margin);
+            } else {
+                make.top.mas_equalTo(self.scrollView).offset(margin);
+            }
+        }];
+        self.lastView = ctgTitlesLable;
+    }
+     */
+    
+    //成分
+    if (self.food.recipe.ingredients) {
+        UILabel *ingredientsLable = [[UILabel alloc] init];
+        [self.scrollView addSubview:ingredientsLable];
+        NSString *ingredients = [NSString stringWithFormat:@"成分：%@",self.food.recipe.ingredients] ;
+        //NSString *sumary = self.food.recipe.sumary ;
+        ingredientsLable.text = ingredients;
+        //ingredientsLable.backgroundColor = WJRandomColor;
+        ingredientsLable.textAlignment = NSTextAlignmentLeft;
+        ingredientsLable.font = lableFont;
+        ingredientsLable.numberOfLines = 0;
+        //        CGSize size = [ingredients sizeWithFont:lableFont maxW:screenW - margin * 3];
+        [ingredientsLable mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(margin);
+            make.right.mas_equalTo(self.view).offset(-margin);
+            
+            if (self.lastView) {
+                make.top.mas_equalTo(self.lastView.mas_bottom).offset(margin);
+            } else {
+                make.top.mas_equalTo(self.scrollView).offset(margin);
+            }
+        }];
+        self.lastView = ingredientsLable;
+    }
+    
+    //如何制作标题
+    if (self.food.recipe.title) {
+        UILabel *titleLable = [[UILabel alloc] init];
+        [self.scrollView addSubview:titleLable];
+        //NSString *title = [NSString stringWithFormat:@"标签分类：%@",self.food.ctgTitles] ;
+        NSString *title = self.food.recipe.title ;
+        titleLable.text = title;
+        //titleLable.backgroundColor = WJRandomColor;
+        titleLable.textAlignment = NSTextAlignmentLeft;
+        titleLable.textColor = [UIColor blackColor];
+        titleLable.font =[UIFont boldSystemFontOfSize:20]; // lableFont;
+        titleLable.numberOfLines = 0;
+        [titleLable mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(margin);
+            make.right.mas_equalTo(self.view).offset(-margin);
+            
+            if (self.lastView) {
+                make.top.mas_equalTo(self.lastView.mas_bottom).offset(margin);
+            } else {
+                make.top.mas_equalTo(self.scrollView).offset(margin);
+            }
+            
+        }];
+        self.lastView = titleLable;
+    }
+
+    
+    //制作步骤：
+    if (self.food.recipe.method) {
+        for (WJMethod *method in self.food.recipe.method) {
+            if (method.step && method.step.length>0) {
+                UILabel *stepLable = [[UILabel alloc] init];
+                [self.scrollView addSubview:stepLable];
+                NSString *step = method.step ;
+                stepLable.text = step;
+                //stepLable.backgroundColor = WJRandomColor;
+                stepLable.textAlignment = NSTextAlignmentLeft;
+                stepLable.font = lableFont;
+                stepLable.numberOfLines = 0;
+                [stepLable mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.left.mas_equalTo(margin);
+                    make.right.mas_equalTo(self.view).offset(-margin);
+                    
+                    if (self.lastView) {
+                        make.top.mas_equalTo(self.lastView.mas_bottom).offset(margin);
+                    } else {
+                        make.top.mas_equalTo(self.scrollView).offset(margin);
+                    }
+                }];
+                self.lastView = stepLable;
+            }
+            
+            if (method.img) {
+                UIImageView *imgView = [[UIImageView alloc] init];
+                imgView.contentMode = UIViewContentModeScaleAspectFit;
+                //imgView.backgroundColor =WJRandomColor;
+                [self.scrollView addSubview:imgView];
+                UIImage *image = [self getImageWithUrl:method.img];
+                imgView.image = image;
+                CGSize size = [self getSizeWithImage:image];
+                [imgView mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.size.mas_equalTo(size);
+                    if (self.lastView) {
+                        make.top.mas_equalTo(self.lastView.mas_bottom).offset(margin);
+                    }
+                    else{
+                        make.top.mas_equalTo(self.scrollView.mas_top).offset(margin);
+                    }
+                    make.centerX.mas_equalTo(self.scrollView.centerX);
+                }];
+                self.lastView = imgView;
+            }
+        }
+    }
+
+/*
+    for (NSUInteger i = 0; i < 20; ++i) {
+        UILabel *label = [[UILabel alloc] init];
+        label.numberOfLines = 0;
+        label.layer.borderColor = [UIColor greenColor].CGColor;
+        label.layer.borderWidth = 2.0;
+        label.text = [self randomText];
+        
+        // We must preferredMaxLayoutWidth property for adapting to iOS6.0
+        label.preferredMaxLayoutWidth = screenWidth - 30;
+        label.textAlignment = NSTextAlignmentLeft;
+        label.textColor = [self randomColor];
+        [self.scrollView addSubview:label];
+        
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(15);
+            make.right.mas_equalTo(self.view).offset(-15);
+            
+            if (lastLabel) {
+                make.top.mas_equalTo(lastLabel.mas_bottom).offset(20);
+            } else {
+                make.top.mas_equalTo(self.scrollView).offset(20);
+            }
+        }];
+        
+        lastLabel = label;
+    }
+    */
+    [self.scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(self.view);
+        
+        // 让scrollview的contentSize随着内容的增多而变化
+        make.bottom.mas_equalTo(self.lastView.mas_bottom).offset(margin);
     }];
-    
-    [container mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(imgView.mas_bottom);
-    }];
-    WJLog(@"container.frame:w=%f,h=%f,x=%f,y=%f",container.width,container.height,container.x,container.y);
-    
-//    //标签VIEW（包含一个LABLE和一个显示值LABLE）
-//    UIView *ctgView = [[UIView alloc] init];
-//    ctgView.backgroundColor = [UIColor blueColor];
-//    [container addSubview:ctgView];
-//    [ctgView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.and.right.equalTo(container);
-//        make.top.equalTo(imgView);
-//        make.height.mas_equalTo(@50);
-//    }];
-    
-    
-    
-//    int count = 10;
-//    UIView *lastView = nil;
-//    for ( int i = 1 ; i <= count ; ++i )
-//    {
-//        UIView *subv = [UIView new];
-//        [container addSubview:subv];
-//        subv.backgroundColor = [UIColor colorWithHue:( arc4random() % 256 / 256.0 )
-//                                          saturation:( arc4random() % 128 / 256.0 ) + 0.5
-//                                          brightness:( arc4random() % 128 / 256.0 ) + 0.5
-//                                               alpha:1];
-//        
-//        [subv mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.left.and.right.equalTo(container);
-//            make.height.mas_equalTo(@(20*i));
-//            
-//            if ( lastView )
-//            {
-//                make.top.mas_equalTo(lastView.mas_bottom);
-//            }
-//            else
-//            {
-//                make.top.mas_equalTo(container.mas_top);
-//            }
-//        }];
-//        
-//        lastView = subv;
-//    }
+}
+
+/**
+ *  根据URL链接获取IMAGE
+ */
+-(UIImage *)getImageWithUrl:(NSString *) strUrl
+{
+    NSURL *url = [NSURL URLWithString: strUrl];
+    return [UIImage imageWithData: [NSData dataWithContentsOfURL:url]];
+}
+/**
+ *  根据image获取对应size，如果宽度超过屏幕宽度的话，会按比较缩小
+ */
+-(CGSize)getSizeWithImage:(UIImage *)image
+{
+    CGFloat screenW = [UIScreen mainScreen].bounds.size.width - margin * 2;
+    CGFloat imgW = image.size.width;
+    CGFloat imgH = image.size.height;
+    if (image.size.width > screenW) {
+        imgW = screenW;
+        imgH = screenW * image.size.height / image.size.width;
+    }
+    return CGSizeMake(imgW, imgH);
 }
 
 /*
