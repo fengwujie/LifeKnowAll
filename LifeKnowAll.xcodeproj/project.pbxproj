@@ -52,6 +52,9 @@
 		9F2B20531D052CA500BCF0BE /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F2B20411D052CA400BCF0BE /* UIImageView+HighlightedWebCache.m */; };
 		9F2B20541D052CA500BCF0BE /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F2B20431D052CA500BCF0BE /* UIImageView+WebCache.m */; };
 		9F2B20551D052CA500BCF0BE /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F2B20451D052CA500BCF0BE /* UIView+WebCacheOperation.m */; };
+		9F46AEAB1D1A8F3F007B4368 /* WJHistoryTodayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F46AEAA1D1A8F3F007B4368 /* WJHistoryTodayController.m */; };
+		9F46AEAE1D1A8F98007B4368 /* WJHistoryTodayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F46AEAD1D1A8F98007B4368 /* WJHistoryTodayModel.m */; };
+		9F46AEB11D1A8FBC007B4368 /* WJHistoryTodayResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F46AEB01D1A8FBC007B4368 /* WJHistoryTodayResultModel.m */; };
 		9F4DAE221D0D6361004D46EF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F4DAE081D0D6361004D46EF /* Info.plist */; };
 		9F4DAE231D0D6361004D46EF /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4DAE0A1D0D6361004D46EF /* MASCompositeConstraint.m */; };
 		9F4DAE241D0D6361004D46EF /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4DAE0D1D0D6361004D46EF /* MASConstraint.m */; };
@@ -248,6 +251,12 @@
 		9F2B20431D052CA500BCF0BE /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		9F2B20441D052CA500BCF0BE /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		9F2B20451D052CA500BCF0BE /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		9F46AEA91D1A8F3F007B4368 /* WJHistoryTodayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJHistoryTodayController.h; sourceTree = "<group>"; };
+		9F46AEAA1D1A8F3F007B4368 /* WJHistoryTodayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJHistoryTodayController.m; sourceTree = "<group>"; };
+		9F46AEAC1D1A8F98007B4368 /* WJHistoryTodayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WJHistoryTodayModel.h; path = LifeKnowAll/Classes/ConvenienceServices/Controller/WJHistoryTodayModel.h; sourceTree = SOURCE_ROOT; };
+		9F46AEAD1D1A8F98007B4368 /* WJHistoryTodayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WJHistoryTodayModel.m; path = LifeKnowAll/Classes/ConvenienceServices/Controller/WJHistoryTodayModel.m; sourceTree = SOURCE_ROOT; };
+		9F46AEAF1D1A8FBC007B4368 /* WJHistoryTodayResultModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WJHistoryTodayResultModel.h; path = LifeKnowAll/Classes/ConvenienceServices/Controller/WJHistoryTodayResultModel.h; sourceTree = SOURCE_ROOT; };
+		9F46AEB01D1A8FBC007B4368 /* WJHistoryTodayResultModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WJHistoryTodayResultModel.m; path = LifeKnowAll/Classes/ConvenienceServices/Controller/WJHistoryTodayResultModel.m; sourceTree = SOURCE_ROOT; };
 		9F4DAE081D0D6361004D46EF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F4DAE091D0D6361004D46EF /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		9F4DAE0A1D0D6361004D46EF /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
@@ -587,6 +596,8 @@
 			children = (
 				9F11E2151CF0CABB00D87C61 /* WJConvenienceServicesController.h */,
 				9F11E2161CF0CABB00D87C61 /* WJConvenienceServicesController.m */,
+				9F46AEA91D1A8F3F007B4368 /* WJHistoryTodayController.h */,
+				9F46AEAA1D1A8F3F007B4368 /* WJHistoryTodayController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -594,6 +605,10 @@
 		9F11E2011CF0C9DC00D87C61 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9F46AEAC1D1A8F98007B4368 /* WJHistoryTodayModel.h */,
+				9F46AEAD1D1A8F98007B4368 /* WJHistoryTodayModel.m */,
+				9F46AEAF1D1A8FBC007B4368 /* WJHistoryTodayResultModel.h */,
+				9F46AEB01D1A8FBC007B4368 /* WJHistoryTodayResultModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1272,6 +1287,7 @@
 				9FFED79D1D06CD75003ED3B3 /* MJRefreshNormalHeader.m in Sources */,
 				9FD91AC31CFCA8CF00DE4940 /* WJFoodMultiple.m in Sources */,
 				9F4DAE2C1D0D6361004D46EF /* ViewController+MASAdditions.m in Sources */,
+				9F46AEAE1D1A8F98007B4368 /* WJHistoryTodayModel.m in Sources */,
 				9FFED7A21D06CD75003ED3B3 /* UIScrollView+MJRefresh.m in Sources */,
 				9F98407A1CFFE3920074A930 /* BDDynamicTreeNode.m in Sources */,
 				9FD7D0A31CF05BCA007EDAFF /* WJGridModel.m in Sources */,
@@ -1350,6 +1366,7 @@
 				9F05A1561CF1AE230080C08E /* AFURLResponseSerialization.m in Sources */,
 				9F05A13C1CF164910080C08E /* WJBaseCollectionViewCell.m in Sources */,
 				9F4DAE271D0D6361004D46EF /* MASViewAttribute.m in Sources */,
+				9F46AEAB1D1A8F3F007B4368 /* WJHistoryTodayController.m in Sources */,
 				9F11E1EC1CF09EF300D87C61 /* WJLifeCommonController.m in Sources */,
 				9F4DAE2A1D0D6361004D46EF /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				9F11E21A1CF0CAD200D87C61 /* WJUserCenterController.m in Sources */,
@@ -1368,6 +1385,7 @@
 				9FFED7971D06CD75003ED3B3 /* MJRefreshAutoNormalFooter.m in Sources */,
 				9F11E1E51CF093FF00D87C61 /* NSString+Extension.m in Sources */,
 				9FD7D09A1CF05932007EDAFF /* NSObject+MJCoding.m in Sources */,
+				9F46AEB11D1A8FBC007B4368 /* WJHistoryTodayResultModel.m in Sources */,
 				9FBF73991CF015A5006F8CC5 /* AppDelegate.m in Sources */,
 				9F05A1551CF1AE230080C08E /* AFURLRequestSerialization.m in Sources */,
 				9F11E1FE1CF0C99500D87C61 /* WJBaseItemViewController.m in Sources */,

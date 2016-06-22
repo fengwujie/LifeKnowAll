@@ -31,4 +31,9 @@
  *  获得与当前时间的差距
  */
 - (NSDateComponents *)deltaWithNow;
+
+/**
+ *  返回一个只有月日的时间串，格式为MMDD
+ */
+- (NSString *)dateWithMD;
 @end

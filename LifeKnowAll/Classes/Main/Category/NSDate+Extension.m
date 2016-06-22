@@ -76,4 +76,14 @@
     int unit = NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
     return [calendar components:unit fromDate:self toDate:[NSDate date] options:0];
 }
+
+- (NSString *)dateWithMD
+{
+    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
+    fmt.dateFormat = @"MMdd";
+    NSString *selfStr = [fmt stringFromDate:self];
+    //return [fmt dateFromString:selfStr];
+    return selfStr;
+}
+
 @end
