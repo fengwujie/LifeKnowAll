@@ -13,12 +13,15 @@
 //#import "MJRefresh.h"
 #import "WJHistoryTodayModel.h"
 #import "WJHistoryTodayResultModel.h"
+#import "WJHistoryTodayGroupModel.h"
+#import "WJHistoryTodayHeaderView.h"
+#import "WJHistoryTodayCell.h"
 
-@interface WJHistoryTodayController ()
+@interface WJHistoryTodayController ()<WJHistoryTodayHeaderViewDelegate>
 /**
- *  历史事件数组
+ *  历史事件分组
  */
-@property (nonatomic, strong) NSArray *arrayEvent;
+@property (nonatomic, strong) NSMutableArray *arrayGroup;
 
 @end
 
@@ -26,6 +29,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.tableView.estimatedRowHeight=200; //预估行高 可以提高性能
+    self.tableView.rowHeight = 88;
+    
+    // 每一组头部控件的高度
+    self.tableView.sectionHeaderHeight = 44;
     
     //[self loadData];
     //self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
@@ -37,12 +46,12 @@
     
 }
 
-- (NSArray *)arrayEvent
+- (NSMutableArray *)arrayGroup
 {
-    if (_arrayEvent == nil) {
-        _arrayEvent = [NSArray array];
+    if (_arrayGroup == nil) {
+        _arrayGroup = [NSMutableArray array];
     }
-    return _arrayEvent;
+    return _arrayGroup;
 }
 
 - (void) loadData{
@@ -68,7 +77,9 @@
         WJLog(@"historyTodayModel:%@", historyTodayModel.result);
         [KVNProgress dismiss];
         if ([historyTodayModel.retCode isEqualToString:@"200"]) {
-            self.arrayEvent = historyTodayModel.result;
+            NSArray *resultModel = [NSArray array];
+            resultModel = historyTodayModel.result;
+            [self resultModelToGroupModel:resultModel];
             [self.tableView reloadData];
         }
         else
@@ -86,84 +97,83 @@
         [KVNProgress showErrorWithStatus:[error localizedDescription]];
     }];
 }
-
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+/**
+ *  结果模型转换成分组模型
+ *
+ *  @param resultModel 历史事件数组，里面装的是模型
+ */
+- (void)resultModelToGroupModel: (NSArray *)resultModel{
+    for (WJHistoryTodayResultModel *result in resultModel) {
+        WJHistoryTodayGroupModel *groupModel = [[WJHistoryTodayGroupModel alloc] init];
+        groupModel.title =[NSString stringWithFormat:@"%@  %@",[self dateChanged:result.date], result.title]; // result.title;
+        groupModel.opened = NO;
+        groupModel.historyToday = result;
+        [self.arrayGroup addObject:groupModel];
+    }
+}
+/**
+ *  日期格式转换，20160622转成2016年06月22日
+ *
+ *  @param strDate 需要转换的字符串
+ *
+ *  @return 返回格式为2016年06月22日
+ */
+- (NSString*) dateChanged:(NSString *)strDate
+{
+    NSDateFormatter *inputFormatter = [[NSDateFormatter alloc] init];
+    [inputFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
+    [inputFormatter setDateFormat:@"yyyyMMdd"];
+    WJLog(@"strDate=%@",strDate);
+    NSDate* inputDate = [inputFormatter dateFromString:strDate];
+    WJLog(@"date = %@", inputDate);  // date = 2011-08-26 05:41:06 +0000
+    
+    NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
+    [outputFormatter setLocale:[NSLocale currentLocale]];
+    [outputFormatter setDateFormat:@"yyyy年MM月dd日"];
+    NSString *str = [outputFormatter stringFromDate:inputDate];
+    WJLog(@"testDate:%@", str);
+    return str;
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 1;
+    return self.arrayGroup.count;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return self.arrayEvent.count;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {    WJHistoryTodayGroupModel *group = self.arrayGroup[section];
+    return (group.isOpened ? 1 : 0);
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    WJHistoryTodayCell *cell = [WJHistoryTodayCell cellWithTableView:tableView];
+    WJHistoryTodayGroupModel *groupModel = [self.arrayGroup objectAtIndex:indexPath.section];
+    WJHistoryTodayResultModel *resultModel = groupModel.historyToday;
+    cell.resultModel = resultModel;
     
-    static NSString *ID = @"historyToday";
-    // 根据标识去缓存池找cell
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    // 不写这句直接崩掉，找不到循环引用的cell
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
-    }
-    WJHistoryTodayResultModel *model = [self.arrayEvent objectAtIndex:indexPath.row];
+    return cell;
+}
+
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    // 1.创建头部控件
+    WJHistoryTodayHeaderView *header = [WJHistoryTodayHeaderView historyTodayHeaderViewWithTableView:tableView];
+    header.delegate = self;
+    // 2.给header设置数据(给header传递模型)
+    header.group = self.arrayGroup[section];
     
-    cell.textLabel.text =[NSString stringWithFormat:@"%@  %@",model.date, model.title];
-    return cell;}
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return header;
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    WJHistoryTodayGroupModel *groupModel = [self.arrayGroup objectAtIndex:indexPath.section];
+    return [groupModel cellHeight];
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+- (void)historyTodayHeaderViewDidClickedNameView:(WJHistoryTodayHeaderView *)headerView{
+    [self.tableView reloadData];
 }
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

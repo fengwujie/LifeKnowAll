@@ -53,8 +53,6 @@
 		9F2B20541D052CA500BCF0BE /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F2B20431D052CA500BCF0BE /* UIImageView+WebCache.m */; };
 		9F2B20551D052CA500BCF0BE /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F2B20451D052CA500BCF0BE /* UIView+WebCacheOperation.m */; };
 		9F46AEAB1D1A8F3F007B4368 /* WJHistoryTodayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F46AEAA1D1A8F3F007B4368 /* WJHistoryTodayController.m */; };
-		9F46AEAE1D1A8F98007B4368 /* WJHistoryTodayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F46AEAD1D1A8F98007B4368 /* WJHistoryTodayModel.m */; };
-		9F46AEB11D1A8FBC007B4368 /* WJHistoryTodayResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F46AEB01D1A8FBC007B4368 /* WJHistoryTodayResultModel.m */; };
 		9F4DAE221D0D6361004D46EF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F4DAE081D0D6361004D46EF /* Info.plist */; };
 		9F4DAE231D0D6361004D46EF /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4DAE0A1D0D6361004D46EF /* MASCompositeConstraint.m */; };
 		9F4DAE241D0D6361004D46EF /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4DAE0D1D0D6361004D46EF /* MASConstraint.m */; };
@@ -92,6 +90,11 @@
 		9FBF739A1CF015A5006F8CC5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FBF73981CF015A5006F8CC5 /* main.m */; };
 		9FBF73A31CF016D7006F8CC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FBF73A11CF016D7006F8CC5 /* LaunchScreen.storyboard */; };
 		9FBF73A41CF016D7006F8CC5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FBF73A21CF016D7006F8CC5 /* Main.storyboard */; };
+		9FC8A3171D1B9E2F00BB0B94 /* WJHistoryTodayGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC8A30F1D1B9E2F00BB0B94 /* WJHistoryTodayGroupModel.m */; };
+		9FC8A3181D1B9E2F00BB0B94 /* WJHistoryTodayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC8A3111D1B9E2F00BB0B94 /* WJHistoryTodayModel.m */; };
+		9FC8A3191D1B9E2F00BB0B94 /* WJHistoryTodayResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC8A3131D1B9E2F00BB0B94 /* WJHistoryTodayResultModel.m */; };
+		9FC8A31A1D1B9E2F00BB0B94 /* WJHistoryTodayHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC8A3161D1B9E2F00BB0B94 /* WJHistoryTodayHeaderView.m */; };
+		9FC8A3261D1BD56F00BB0B94 /* WJHistoryTodayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC8A3251D1BD56F00BB0B94 /* WJHistoryTodayCell.m */; };
 		9FD0F88B1CF089230059DEF9 /* WJNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD0F88A1CF089230059DEF9 /* WJNavigationViewController.m */; };
 		9FD0F88E1CF08A0C0059DEF9 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD0F88D1CF08A0C0059DEF9 /* UIBarButtonItem+Extension.m */; };
 		9FD7D0771CF03791007EDAFF /* Menu.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9FD7D0761CF03791007EDAFF /* Menu.plist */; };
@@ -253,10 +256,6 @@
 		9F2B20451D052CA500BCF0BE /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		9F46AEA91D1A8F3F007B4368 /* WJHistoryTodayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJHistoryTodayController.h; sourceTree = "<group>"; };
 		9F46AEAA1D1A8F3F007B4368 /* WJHistoryTodayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJHistoryTodayController.m; sourceTree = "<group>"; };
-		9F46AEAC1D1A8F98007B4368 /* WJHistoryTodayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WJHistoryTodayModel.h; path = LifeKnowAll/Classes/ConvenienceServices/Controller/WJHistoryTodayModel.h; sourceTree = SOURCE_ROOT; };
-		9F46AEAD1D1A8F98007B4368 /* WJHistoryTodayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WJHistoryTodayModel.m; path = LifeKnowAll/Classes/ConvenienceServices/Controller/WJHistoryTodayModel.m; sourceTree = SOURCE_ROOT; };
-		9F46AEAF1D1A8FBC007B4368 /* WJHistoryTodayResultModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WJHistoryTodayResultModel.h; path = LifeKnowAll/Classes/ConvenienceServices/Controller/WJHistoryTodayResultModel.h; sourceTree = SOURCE_ROOT; };
-		9F46AEB01D1A8FBC007B4368 /* WJHistoryTodayResultModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WJHistoryTodayResultModel.m; path = LifeKnowAll/Classes/ConvenienceServices/Controller/WJHistoryTodayResultModel.m; sourceTree = SOURCE_ROOT; };
 		9F4DAE081D0D6361004D46EF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F4DAE091D0D6361004D46EF /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		9F4DAE0A1D0D6361004D46EF /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
@@ -327,6 +326,16 @@
 		9FBF73981CF015A5006F8CC5 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9FBF73A11CF016D7006F8CC5 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9FBF73A21CF016D7006F8CC5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		9FC8A30E1D1B9E2F00BB0B94 /* WJHistoryTodayGroupModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJHistoryTodayGroupModel.h; sourceTree = "<group>"; };
+		9FC8A30F1D1B9E2F00BB0B94 /* WJHistoryTodayGroupModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJHistoryTodayGroupModel.m; sourceTree = "<group>"; };
+		9FC8A3101D1B9E2F00BB0B94 /* WJHistoryTodayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJHistoryTodayModel.h; sourceTree = "<group>"; };
+		9FC8A3111D1B9E2F00BB0B94 /* WJHistoryTodayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJHistoryTodayModel.m; sourceTree = "<group>"; };
+		9FC8A3121D1B9E2F00BB0B94 /* WJHistoryTodayResultModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJHistoryTodayResultModel.h; sourceTree = "<group>"; };
+		9FC8A3131D1B9E2F00BB0B94 /* WJHistoryTodayResultModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJHistoryTodayResultModel.m; sourceTree = "<group>"; };
+		9FC8A3151D1B9E2F00BB0B94 /* WJHistoryTodayHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJHistoryTodayHeaderView.h; sourceTree = "<group>"; };
+		9FC8A3161D1B9E2F00BB0B94 /* WJHistoryTodayHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJHistoryTodayHeaderView.m; sourceTree = "<group>"; };
+		9FC8A3241D1BD56F00BB0B94 /* WJHistoryTodayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJHistoryTodayCell.h; sourceTree = "<group>"; };
+		9FC8A3251D1BD56F00BB0B94 /* WJHistoryTodayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJHistoryTodayCell.m; sourceTree = "<group>"; };
 		9FD0F8891CF089230059DEF9 /* WJNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJNavigationViewController.h; sourceTree = "<group>"; };
 		9FD0F88A1CF089230059DEF9 /* WJNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJNavigationViewController.m; sourceTree = "<group>"; };
 		9FD0F88C1CF08A0C0059DEF9 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
@@ -584,9 +593,9 @@
 		9F11E1FF1CF0C9DC00D87C61 /* ConvenienceServices */ = {
 			isa = PBXGroup;
 			children = (
+				9FC8A30D1D1B9E2F00BB0B94 /* Model */,
+				9FC8A3141D1B9E2F00BB0B94 /* View */,
 				9F11E2001CF0C9DC00D87C61 /* Controller */,
-				9F11E2011CF0C9DC00D87C61 /* Model */,
-				9F11E2021CF0C9DC00D87C61 /* View */,
 			);
 			path = ConvenienceServices;
 			sourceTree = "<group>";
@@ -602,30 +611,12 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		9F11E2011CF0C9DC00D87C61 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				9F46AEAC1D1A8F98007B4368 /* WJHistoryTodayModel.h */,
-				9F46AEAD1D1A8F98007B4368 /* WJHistoryTodayModel.m */,
-				9F46AEAF1D1A8FBC007B4368 /* WJHistoryTodayResultModel.h */,
-				9F46AEB01D1A8FBC007B4368 /* WJHistoryTodayResultModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		9F11E2021CF0C9DC00D87C61 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		9F11E2031CF0C9EC00D87C61 /* FinancialFund */ = {
 			isa = PBXGroup;
 			children = (
+				9FC8A31B1D1B9E7E00BB0B94 /* Model */,
+				9FC8A31C1D1B9E7E00BB0B94 /* View */,
 				9F11E2041CF0C9EC00D87C61 /* Controller */,
-				9F11E2051CF0C9EC00D87C61 /* Model */,
-				9F11E2061CF0C9EC00D87C61 /* View */,
 			);
 			path = FinancialFund;
 			sourceTree = "<group>";
@@ -639,26 +630,12 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		9F11E2051CF0C9EC00D87C61 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		9F11E2061CF0C9EC00D87C61 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		9F11E2071CF0C9EC00D87C61 /* LeisureTravel */ = {
 			isa = PBXGroup;
 			children = (
+				9FC8A31D1D1B9E9300BB0B94 /* Model */,
+				9FC8A31E1D1B9E9300BB0B94 /* View */,
 				9F11E2081CF0C9EC00D87C61 /* Controller */,
-				9F11E2091CF0C9EC00D87C61 /* Model */,
-				9F11E20A1CF0C9EC00D87C61 /* View */,
 			);
 			path = LeisureTravel;
 			sourceTree = "<group>";
@@ -672,26 +649,12 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		9F11E2091CF0C9EC00D87C61 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		9F11E20A1CF0C9EC00D87C61 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		9F11E20B1CF0C9EC00D87C61 /* UserCenter */ = {
 			isa = PBXGroup;
 			children = (
+				9FC8A31F1D1B9EA100BB0B94 /* Model */,
+				9FC8A3201D1B9EA100BB0B94 /* View */,
 				9F11E20C1CF0C9EC00D87C61 /* Controller */,
-				9F11E20D1CF0C9EC00D87C61 /* Model */,
-				9F11E20E1CF0C9EC00D87C61 /* View */,
 			);
 			path = UserCenter;
 			sourceTree = "<group>";
@@ -703,20 +666,6 @@
 				9F11E2191CF0CAD200D87C61 /* WJUserCenterController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		9F11E20D1CF0C9EC00D87C61 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		9F11E20E1CF0C9EC00D87C61 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		9F2B20241D052CA400BCF0BE /* SDWebImage */ = {
@@ -949,6 +898,72 @@
 				9F05A1391CF164910080C08E /* WJBaseCollectionViewCell.h */,
 				9F05A13A1CF164910080C08E /* WJBaseCollectionViewCell.m */,
 				9F05A13B1CF164910080C08E /* WJBaseCollectionViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9FC8A30D1D1B9E2F00BB0B94 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9FC8A30E1D1B9E2F00BB0B94 /* WJHistoryTodayGroupModel.h */,
+				9FC8A30F1D1B9E2F00BB0B94 /* WJHistoryTodayGroupModel.m */,
+				9FC8A3101D1B9E2F00BB0B94 /* WJHistoryTodayModel.h */,
+				9FC8A3111D1B9E2F00BB0B94 /* WJHistoryTodayModel.m */,
+				9FC8A3121D1B9E2F00BB0B94 /* WJHistoryTodayResultModel.h */,
+				9FC8A3131D1B9E2F00BB0B94 /* WJHistoryTodayResultModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9FC8A3141D1B9E2F00BB0B94 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9FC8A3151D1B9E2F00BB0B94 /* WJHistoryTodayHeaderView.h */,
+				9FC8A3161D1B9E2F00BB0B94 /* WJHistoryTodayHeaderView.m */,
+				9FC8A3241D1BD56F00BB0B94 /* WJHistoryTodayCell.h */,
+				9FC8A3251D1BD56F00BB0B94 /* WJHistoryTodayCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9FC8A31B1D1B9E7E00BB0B94 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9FC8A31C1D1B9E7E00BB0B94 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9FC8A31D1D1B9E9300BB0B94 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9FC8A31E1D1B9E9300BB0B94 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9FC8A31F1D1B9EA100BB0B94 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9FC8A3201D1B9EA100BB0B94 /* View */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1287,9 +1302,9 @@
 				9FFED79D1D06CD75003ED3B3 /* MJRefreshNormalHeader.m in Sources */,
 				9FD91AC31CFCA8CF00DE4940 /* WJFoodMultiple.m in Sources */,
 				9F4DAE2C1D0D6361004D46EF /* ViewController+MASAdditions.m in Sources */,
-				9F46AEAE1D1A8F98007B4368 /* WJHistoryTodayModel.m in Sources */,
 				9FFED7A21D06CD75003ED3B3 /* UIScrollView+MJRefresh.m in Sources */,
 				9F98407A1CFFE3920074A930 /* BDDynamicTreeNode.m in Sources */,
+				9FC8A3171D1B9E2F00BB0B94 /* WJHistoryTodayGroupModel.m in Sources */,
 				9FD7D0A31CF05BCA007EDAFF /* WJGridModel.m in Sources */,
 				9F9840771CFFE3920074A930 /* BDDynamicTree.m in Sources */,
 				9F4DAE2B1D0D6361004D46EF /* View+MASAdditions.m in Sources */,
@@ -1346,6 +1361,7 @@
 				9FD7D09D1CF05932007EDAFF /* NSString+MJExtension.m in Sources */,
 				9FFED79A1D06CD75003ED3B3 /* MJRefreshBackNormalFooter.m in Sources */,
 				9FE521D71CFD68A8002B1901 /* WJSubCategoryInfo.m in Sources */,
+				9FC8A3191D1B9E2F00BB0B94 /* WJHistoryTodayResultModel.m in Sources */,
 				9F4DAE291D0D6361004D46EF /* NSArray+MASAdditions.m in Sources */,
 				9F4DAE281D0D6361004D46EF /* MASViewConstraint.m in Sources */,
 				9FFED7A01D06CD75003ED3B3 /* MJRefreshConst.m in Sources */,
@@ -1360,6 +1376,7 @@
 				9F2B20491D052CA500BCF0BE /* SDWebImageCompat.m in Sources */,
 				9FFED7981D06CD75003ED3B3 /* MJRefreshAutoStateFooter.m in Sources */,
 				9FD91AB71CFCA28700DE4940 /* WJCategoryInfo.m in Sources */,
+				9FC8A31A1D1B9E2F00BB0B94 /* WJHistoryTodayHeaderView.m in Sources */,
 				9FD91ABA1CFCA45800DE4940 /* WJBigCategoryInfo.m in Sources */,
 				9FFED7621D066BC5003ED3B3 /* WJFoodMenuCell.m in Sources */,
 				9F4DAE241D0D6361004D46EF /* MASConstraint.m in Sources */,
@@ -1378,14 +1395,15 @@
 				9F2B20511D052CA500BCF0BE /* UIImage+MultiFormat.m in Sources */,
 				9FD7D07A1CF0461E007EDAFF /* WJTabBarViewController.m in Sources */,
 				9F176F681CF3522B00EDBF56 /* WJIPAddressReturnModel.m in Sources */,
+				9FC8A3181D1B9E2F00BB0B94 /* WJHistoryTodayModel.m in Sources */,
 				9FD7D09C1CF05932007EDAFF /* NSObject+MJProperty.m in Sources */,
 				9F2B20501D052CA500BCF0BE /* UIImage+GIF.m in Sources */,
 				9F176F601CF34FF200EDBF56 /* WJIPAddressController.m in Sources */,
 				9F05A1681CF1AEAE0080C08E /* UIImage+KVNEmpty.m in Sources */,
+				9FC8A3261D1BD56F00BB0B94 /* WJHistoryTodayCell.m in Sources */,
 				9FFED7971D06CD75003ED3B3 /* MJRefreshAutoNormalFooter.m in Sources */,
 				9F11E1E51CF093FF00D87C61 /* NSString+Extension.m in Sources */,
 				9FD7D09A1CF05932007EDAFF /* NSObject+MJCoding.m in Sources */,
-				9F46AEB11D1A8FBC007B4368 /* WJHistoryTodayResultModel.m in Sources */,
 				9FBF73991CF015A5006F8CC5 /* AppDelegate.m in Sources */,
 				9F05A1551CF1AE230080C08E /* AFURLRequestSerialization.m in Sources */,
 				9F11E1FE1CF0C99500D87C61 /* WJBaseItemViewController.m in Sources */,
