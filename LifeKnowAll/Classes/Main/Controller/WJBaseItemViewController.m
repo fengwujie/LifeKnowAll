@@ -9,6 +9,7 @@
 #import "WJBaseItemViewController.h"
 #import "WJBaseCollectionViewCell.h"
 #import "WJGridModel.h"
+#import "KVNProgress.h"
 
 #define kMargin 5   //设置GRID网格的间距
 
@@ -89,6 +90,10 @@ static NSString *cellID = @"gridCell";
 {
     WJGridModel *gridModel = [self.arrayGridModel objectAtIndex:indexPath.row];
     UIViewController *childVc = (UIViewController *)[[NSClassFromString(gridModel.controllerView) alloc] init];
+    if (childVc == nil) {
+        [KVNProgress showSuccessWithStatus:@"功能完善中！"];
+        return;
+    }
     childVc.title = gridModel.gridTitle;
     //childVc.view.backgroundColor = [UIColor whiteColor];
     [self.navigationController pushViewController:childVc animated:YES];

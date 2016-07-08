@@ -97,6 +97,7 @@
 		9F659BD21D2A46CE00B79EFB /* UIWindow+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F659BCC1D2A46CE00B79EFB /* UIWindow+Extension.m */; };
 		9F659BD51D2A47D600B79EFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F659BD31D2A47D600B79EFB /* LaunchScreen.storyboard */; };
 		9F659BD61D2A47D600B79EFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F659BD41D2A47D600B79EFB /* Main.storyboard */; };
+		9F659BD91D2A510D00B79EFB /* WJWeatherForecastController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F659BD81D2A510D00B79EFB /* WJWeatherForecastController.m */; };
 		9F9840771CFFE3920074A930 /* BDDynamicTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F98406A1CFFE3920074A930 /* BDDynamicTree.m */; };
 		9F9840781CFFE3920074A930 /* BDDynamicTreeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F98406C1CFFE3920074A930 /* BDDynamicTreeCell.m */; };
 		9F9840791CFFE3920074A930 /* BDDynamicTreeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F98406D1CFFE3920074A930 /* BDDynamicTreeCell.xib */; };
@@ -128,6 +129,7 @@
 		9FD7D09D1CF05932007EDAFF /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD7D0931CF05932007EDAFF /* NSString+MJExtension.m */; };
 		9FD7D0A01CF05999007EDAFF /* WJTabBarItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD7D09F1CF05999007EDAFF /* WJTabBarItemModel.m */; };
 		9FD7D0A31CF05BCA007EDAFF /* WJGridModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD7D0A21CF05BCA007EDAFF /* WJGridModel.m */; };
+		9FEF38F21D2CF52F00DF2360 /* WJWeatherForecastModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FEF38F11D2CF52F00DF2360 /* WJWeatherForecastModel.m */; };
 		9FFED7911D06CD75003ED3B3 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FFED7671D06CD75003ED3B3 /* MJRefreshAutoFooter.m */; };
 		9FFED7921D06CD75003ED3B3 /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FFED7691D06CD75003ED3B3 /* MJRefreshBackFooter.m */; };
 		9FFED7931D06CD75003ED3B3 /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FFED76B1D06CD75003ED3B3 /* MJRefreshComponent.m */; };
@@ -343,6 +345,8 @@
 		9F659BCC1D2A46CE00B79EFB /* UIWindow+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Extension.m"; sourceTree = "<group>"; };
 		9F659BD31D2A47D600B79EFB /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9F659BD41D2A47D600B79EFB /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		9F659BD71D2A510D00B79EFB /* WJWeatherForecastController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJWeatherForecastController.h; sourceTree = "<group>"; };
+		9F659BD81D2A510D00B79EFB /* WJWeatherForecastController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJWeatherForecastController.m; sourceTree = "<group>"; };
 		9F9840691CFFE3920074A930 /* BDDynamicTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDDynamicTree.h; sourceTree = "<group>"; };
 		9F98406A1CFFE3920074A930 /* BDDynamicTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDDynamicTree.m; sourceTree = "<group>"; };
 		9F98406B1CFFE3920074A930 /* BDDynamicTreeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDDynamicTreeCell.h; sourceTree = "<group>"; };
@@ -401,6 +405,8 @@
 		9FD7D09F1CF05999007EDAFF /* WJTabBarItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJTabBarItemModel.m; sourceTree = "<group>"; };
 		9FD7D0A11CF05BCA007EDAFF /* WJGridModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJGridModel.h; sourceTree = "<group>"; };
 		9FD7D0A21CF05BCA007EDAFF /* WJGridModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJGridModel.m; sourceTree = "<group>"; };
+		9FEF38F01D2CF52F00DF2360 /* WJWeatherForecastModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJWeatherForecastModel.h; sourceTree = "<group>"; };
+		9FEF38F11D2CF52F00DF2360 /* WJWeatherForecastModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJWeatherForecastModel.m; sourceTree = "<group>"; };
 		9FFED7661D06CD75003ED3B3 /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoFooter.h; sourceTree = "<group>"; };
 		9FFED7671D06CD75003ED3B3 /* MJRefreshAutoFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshAutoFooter.m; sourceTree = "<group>"; };
 		9FFED7681D06CD75003ED3B3 /* MJRefreshBackFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBackFooter.h; sourceTree = "<group>"; };
@@ -791,6 +797,8 @@
 				9F659B541D2A469200B79EFB /* WJLifeCommonController.m */,
 				9F659B551D2A469200B79EFB /* WJNumberLocationController.h */,
 				9F659B561D2A469200B79EFB /* WJNumberLocationController.m */,
+				9F659BD71D2A510D00B79EFB /* WJWeatherForecastController.h */,
+				9F659BD81D2A510D00B79EFB /* WJWeatherForecastController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -798,6 +806,7 @@
 		9F659B571D2A469200B79EFB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9FEF38EF1D2CF51600DF2360 /* WeatherForecast */,
 				9F659B581D2A469200B79EFB /* FoodMenu */,
 				9F659B6F1D2A469200B79EFB /* WJIdentityCardQueryModel.h */,
 				9F659B701D2A469200B79EFB /* WJIdentityCardQueryModel.m */,
@@ -1115,6 +1124,15 @@
 			path = BDDynamicTree;
 			sourceTree = "<group>";
 		};
+		9FEF38EF1D2CF51600DF2360 /* WeatherForecast */ = {
+			isa = PBXGroup;
+			children = (
+				9FEF38F01D2CF52F00DF2360 /* WJWeatherForecastModel.h */,
+				9FEF38F11D2CF52F00DF2360 /* WJWeatherForecastModel.m */,
+			);
+			path = WeatherForecast;
+			sourceTree = "<group>";
+		};
 		9FFED7641D06CD75003ED3B3 /* MJRefresh */ = {
 			isa = PBXGroup;
 			children = (
@@ -1423,6 +1441,7 @@
 				9FFED79B1D06CD75003ED3B3 /* MJRefreshBackStateFooter.m in Sources */,
 				9F659B921D2A469200B79EFB /* WJFoodMenuDetailController.m in Sources */,
 				9F2B20521D052CA500BCF0BE /* UIImage+WebP.m in Sources */,
+				9FEF38F21D2CF52F00DF2360 /* WJWeatherForecastModel.m in Sources */,
 				9FD7D0981CF05932007EDAFF /* MJPropertyType.m in Sources */,
 				9F2B204E1D052CA500BCF0BE /* SDWebImagePrefetcher.m in Sources */,
 				9F9840781CFFE3920074A930 /* BDDynamicTreeCell.m in Sources */,
@@ -1434,6 +1453,7 @@
 				9FD7D09D1CF05932007EDAFF /* NSString+MJExtension.m in Sources */,
 				9FFED79A1D06CD75003ED3B3 /* MJRefreshBackNormalFooter.m in Sources */,
 				9F4DAE291D0D6361004D46EF /* NSArray+MASAdditions.m in Sources */,
+				9F659BD91D2A510D00B79EFB /* WJWeatherForecastController.m in Sources */,
 				9F659BA61D2A469200B79EFB /* WJIPAddressModel.m in Sources */,
 				9F4DAE281D0D6361004D46EF /* MASViewConstraint.m in Sources */,
 				9F659B931D2A469200B79EFB /* WJFoodMenuQueryController.m in Sources */,
